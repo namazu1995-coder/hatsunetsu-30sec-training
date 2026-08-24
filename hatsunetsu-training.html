@@ -1,0 +1,912 @@
+<title>院内発熱30秒トレーニング</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+  :root{
+    --bg:#F4F7F7;
+    --surface:#FFFFFF;
+    --surface-2:#EAF0F0;
+    --ink:#132326;
+    --ink-soft:#51666C;
+    --ink-faint:#8298A0;
+    --line:#DAE4E4;
+    --primary:#0B6E6E;
+    --primary-strong:#084F4F;
+    --primary-tint:#E2F1F0;
+    --accent:#C1782E;
+    --accent-tint:#FBEDDC;
+    --good:#2E7D4F;
+    --good-tint:#E4F3EA;
+    --warn:#C1782E;
+    --warn-tint:#FBEDDC;
+    --bad:#B23A3A;
+    --bad-tint:#FBE7E5;
+    --shadow: 0 1px 2px rgba(19,35,38,.06), 0 6px 20px rgba(19,35,38,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1A1C;
+      --surface:#152426;
+      --surface-2:#1B2C2E;
+      --ink:#EAF2F1;
+      --ink-soft:#A9BDBF;
+      --ink-faint:#71898C;
+      --line:#264042;
+      --primary:#4FBCB6;
+      --primary-strong:#7ED4CE;
+      --primary-tint:#193532;
+      --accent:#E3A45D;
+      --accent-tint:#332615;
+      --good:#6FC796;
+      --good-tint:#16301F;
+      --warn:#E3A45D;
+      --warn-tint:#332615;
+      --bad:#E27C7C;
+      --bad-tint:#3A1B1B;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0E1A1C;
+    --surface:#152426;
+    --surface-2:#1B2C2E;
+    --ink:#EAF2F1;
+    --ink-soft:#A9BDBF;
+    --ink-faint:#71898C;
+    --line:#264042;
+    --primary:#4FBCB6;
+    --primary-strong:#7ED4CE;
+    --primary-tint:#193532;
+    --accent:#E3A45D;
+    --accent-tint:#332615;
+    --good:#6FC796;
+    --good-tint:#16301F;
+    --warn:#E3A45D;
+    --warn-tint:#332615;
+    --bad:#E27C7C;
+    --bad-tint:#3A1B1B;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.65;
+  }
+  h1,h2,h3,.disp{
+    font-family:"Zen Kaku Gothic New","BIZ UDPGothic",system-ui,sans-serif;
+    text-wrap:balance;
+    margin:0;
+  }
+  #app{
+    max-width:520px;
+    margin:0 auto;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  .topbar{
+    position:sticky; top:0; z-index:20;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    padding:14px 18px 12px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .topbar .back{
+    appearance:none; border:none; background:transparent; color:var(--primary);
+    font-size:15px; font-weight:700; cursor:pointer; padding:6px 4px 6px 0;
+    display:flex; align-items:center; gap:2px;
+    font-family:inherit;
+  }
+  .topbar .title{
+    font-size:15px; font-weight:700; color:var(--ink-soft);
+    letter-spacing:.02em;
+    flex:1;
+    text-align:center;
+    margin-right:34px;
+  }
+  main{flex:1; padding:0 18px 48px;}
+
+  /* ---------- HOME ---------- */
+  .hero{
+    padding:28px 4px 18px;
+  }
+  .hero .eyebrow{
+    font-size:12px; font-weight:700; letter-spacing:.14em; color:var(--primary);
+    text-transform:uppercase;
+  }
+  .hero h1{
+    font-size:26px; font-weight:900; color:var(--ink); margin-top:8px; line-height:1.4;
+  }
+  .hero p{
+    color:var(--ink-soft); font-size:14px; margin-top:10px; max-width:44ch;
+  }
+  .progress-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:16px 18px; margin:14px 0 8px; box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:16px;
+  }
+  .progress-ring{ position:relative; width:56px; height:56px; flex:none;}
+  .progress-ring svg{ transform:rotate(-90deg); }
+  .progress-ring .pct{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; font-variant-numeric:tabular-nums; color:var(--primary-strong);
+  }
+  .progress-text{flex:1;}
+  .progress-text .num{font-size:13px; font-weight:700; color:var(--ink);}
+  .progress-text .sub{font-size:12.5px; color:var(--ink-faint); margin-top:2px;}
+  .review-pill-btn{
+    appearance:none; border:1px solid var(--warn); background:var(--warn-tint); color:var(--warn);
+    font-weight:700; font-size:12.5px; padding:8px 12px; border-radius:999px; cursor:pointer;
+    white-space:nowrap; font-family:inherit;
+  }
+  .keitai-cta{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    background:var(--primary-tint); border:1px solid var(--primary); border-radius:16px;
+    padding:14px 18px; margin:10px 0 24px; cursor:pointer;
+  }
+  .keitai-cta .t{font-size:14px; font-weight:700; color:var(--primary-strong);}
+  .keitai-cta .s{font-size:12px; color:var(--ink-soft); margin-top:2px;}
+  .keitai-cta .arrow{color:var(--primary-strong); font-size:18px; flex:none;}
+
+  .section-head{
+    display:flex; align-items:baseline; gap:8px; margin:26px 0 12px;
+  }
+  .section-head .dot{width:9px;height:9px;border-radius:50%;flex:none;}
+  .section-head.infectious .dot{background:var(--bad);}
+  .section-head.noninfectious .dot{background:var(--primary);}
+  .section-head h2{font-size:15px; font-weight:700; color:var(--ink);}
+  .section-head .count{font-size:12px; color:var(--ink-faint); font-weight:400;}
+
+  .case-grid{ display:flex; flex-direction:column; gap:10px; }
+  .case-card{
+    display:flex; align-items:center; gap:14px;
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:14px 14px; cursor:pointer; text-align:left; width:100%;
+    box-shadow:var(--shadow); font-family:inherit;
+    appearance:none;
+  }
+  .case-card:active{ transform:scale(.99); }
+  .case-num{
+    font-family:"Zen Kaku Gothic New",sans-serif; font-weight:900; font-size:13px;
+    color:var(--ink-faint); width:26px; flex:none; font-variant-numeric:tabular-nums;
+  }
+  .case-body{flex:1; min-width:0; display:flex; flex-direction:column; gap:3px;}
+  .case-body .hint{font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;}
+  .status-chip{
+    flex:none; font-size:11.5px; font-weight:700; padding:5px 10px; border-radius:999px;
+    white-space:nowrap;
+  }
+  .status-chip.none{ background:var(--surface-2); color:var(--ink-faint); }
+  .status-chip.good{ background:var(--good-tint); color:var(--good); }
+  .status-chip.partial{ background:var(--warn-tint); color:var(--warn); }
+  .status-chip.poor{ background:var(--bad-tint); color:var(--bad); }
+
+  .empty-review{
+    text-align:center; padding:40px 20px; color:var(--ink-faint); font-size:14px;
+  }
+
+  /* ---------- CASE VIEW ---------- */
+  .case-hero{ padding:22px 0 4px; }
+  .case-hero .tag{ font-size:12px; font-weight:700; color:var(--primary); letter-spacing:.08em; text-transform:uppercase;}
+  .case-hero h1{ font-size:23px; font-weight:900; margin-top:8px; }
+  .illustration-wrap{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:10px; margin-top:16px; box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .illustration-wrap svg{ width:100%; max-width:280px; height:auto; display:block; }
+  .vignette{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:18px 20px; margin-top:16px; box-shadow:var(--shadow); font-size:14.5px; color:var(--ink);
+  }
+  .vitals-line{
+    margin-top:12px; padding-top:12px; border-top:1px dashed var(--line);
+    font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums;
+  }
+  .vitals-line b{color:var(--ink); font-weight:700;}
+
+  .prompt-block{ margin-top:22px; }
+  .prompt-block label{
+    display:block; font-size:13.5px; font-weight:700; color:var(--ink); margin-bottom:8px;
+  }
+  .prompt-block label .n{ color:var(--primary); margin-right:6px; }
+  .prompt-block textarea{
+    width:100%; min-height:64px; resize:vertical; border-radius:12px;
+    border:1px solid var(--line); background:var(--surface); color:var(--ink);
+    padding:12px 14px; font-family:inherit; font-size:14px; line-height:1.6;
+  }
+  .prompt-block textarea:focus{ outline:2px solid var(--primary); outline-offset:1px; }
+  .prompt-block textarea::placeholder{ color:var(--ink-faint); }
+
+  .reveal-btn{
+    width:100%; margin-top:24px; appearance:none; border:none; cursor:pointer;
+    background:var(--primary); color:#fff; font-weight:700; font-size:15px;
+    padding:15px; border-radius:14px; font-family:inherit;
+    box-shadow:0 4px 14px rgba(11,110,110,.28);
+  }
+  .reveal-btn:active{ transform:scale(.99); }
+
+  .answer-wrap{ margin-top:28px; }
+  .diagnosis-reveal{
+    background:var(--primary-tint); border:1.5px solid var(--primary); border-radius:16px;
+    padding:18px 20px; margin-bottom:20px; text-align:center;
+  }
+  .diagnosis-reveal .dr-eyebrow{
+    font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--primary-strong);
+  }
+  .diagnosis-reveal .dr-title{
+    font-family:"Zen Kaku Gothic New","BIZ UDPGothic",sans-serif; font-size:21px; font-weight:900;
+    margin-top:6px; color:var(--ink);
+  }
+  .diagnosis-reveal .dr-sub{ font-size:12.5px; margin-top:6px; color:var(--ink-soft); }
+  .answer-wrap .divider{
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .answer-wrap .divider .line{ flex:1; height:1px; background:var(--line); }
+  .answer-wrap .divider span{ font-size:12px; font-weight:700; color:var(--ink-faint); letter-spacing:.08em;}
+
+  .answer-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:16px;
+    padding:18px 20px; margin-bottom:12px; box-shadow:var(--shadow);
+  }
+  .answer-card h3{
+    font-size:13.5px; font-weight:700; display:flex; align-items:center; gap:8px; margin-bottom:10px;
+  }
+  .answer-card h3 .ico{
+    width:22px;height:22px;border-radius:7px;flex:none; display:flex;align-items:center;justify-content:center;
+    font-size:12px; font-weight:900; color:#fff;
+  }
+  .ico.check{background:var(--primary);}
+  .ico.danger{background:var(--bad);}
+  .ico.tests{background:var(--accent);}
+  .answer-card ul{ margin:0; padding-left:20px; font-size:14px; color:var(--ink); }
+  .answer-card li{ margin-bottom:6px; }
+  .answer-card li:last-child{ margin-bottom:0; }
+  mark{
+    background:var(--accent-tint); color:var(--accent); padding:1px 5px; border-radius:5px;
+    font-weight:700; box-decoration-break:clone; -webkit-box-decoration-break:clone;
+  }
+
+  .assess-block{ margin-top:26px; }
+  .assess-block .q{ font-size:14px; font-weight:700; margin-bottom:12px; text-align:center; }
+  .assess-row{ display:flex; gap:8px; }
+  .assess-btn{
+    flex:1; appearance:none; cursor:pointer; border-radius:12px; padding:13px 6px;
+    font-family:inherit; font-size:12.5px; font-weight:700; line-height:1.4;
+    border:1.5px solid var(--line); background:var(--surface); color:var(--ink-soft);
+  }
+  .assess-btn.good{ border-color:var(--good); }
+  .assess-btn.partial{ border-color:var(--warn); }
+  .assess-btn.poor{ border-color:var(--bad); }
+  .assess-btn.good.active{ background:var(--good); color:#fff; }
+  .assess-btn.partial.active{ background:var(--warn); color:#fff; }
+  .assess-btn.poor.active{ background:var(--bad); color:#fff; }
+
+  .after-assess{
+    margin-top:22px; display:flex; flex-direction:column; gap:10px;
+    animation:fadein .3s ease;
+  }
+  @keyframes fadein{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+  .nav-btn{
+    appearance:none; border:none; cursor:pointer; border-radius:12px; padding:14px;
+    font-family:inherit; font-size:14.5px; font-weight:700; text-align:center;
+  }
+  .nav-btn.primary{ background:var(--primary); color:#fff; }
+  .nav-btn.ghost{ background:var(--surface-2); color:var(--ink-soft); border:1px solid var(--line); }
+
+  /* ---------- KEITAI (PATTERN) VIEW ---------- */
+  .keitai-hero{ padding:24px 0 6px; }
+  .keitai-hero .eyebrow{ font-size:12px; font-weight:700; color:var(--primary); letter-spacing:.1em; text-transform:uppercase;}
+  .keitai-hero h1{ font-size:22px; font-weight:900; margin-top:8px; }
+  .keitai-hero p{ font-size:13.5px; color:var(--ink-soft); margin-top:8px; }
+
+  .flow{ margin-top:22px; position:relative; }
+  .flow-step{
+    display:flex; gap:14px; position:relative; padding-bottom:22px;
+  }
+  .flow-step:last-child{ padding-bottom:0; }
+  .flow-step .rail{
+    display:flex; flex-direction:column; align-items:center; flex:none;
+  }
+  .flow-step .node{
+    width:32px; height:32px; border-radius:50%; background:var(--primary); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:900; font-size:13px;
+    font-family:"Zen Kaku Gothic New",sans-serif; flex:none; z-index:1;
+  }
+  .flow-step .stem{ width:2px; flex:1; background:var(--line); margin-top:2px; }
+  .flow-step .content{ flex:1; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px 16px; box-shadow:var(--shadow); margin-top:1px;}
+  .flow-step .content h3{ font-size:14.5px; font-weight:700; }
+  .flow-step .content p{ font-size:13px; color:var(--ink-soft); margin-top:5px; }
+
+  .keitai-foot{
+    margin-top:26px; padding:16px 18px; background:var(--primary-tint); border-radius:14px;
+    font-size:13px; color:var(--primary-strong); text-align:center; font-weight:700;
+  }
+
+  a{color:var(--primary);}
+  button:focus-visible, textarea:focus-visible, .case-card:focus-visible{
+    outline:2px solid var(--primary); outline-offset:2px;
+  }
+</style>
+
+<div id="app"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  var CASES = [
+    {
+      id:"pneumonia", num:1, cat:"infectious", tag:"呼吸器",
+      title:"肺炎", hint:"78歳男性・嚥下障害あり・入院5日目の発熱", illo:"mask",
+      vignette:"78歳男性。脳梗塞後遺症で嚥下障害があり入院中。入院5日目の夜、38.5℃の発熱に気づかれた。湿性咳嗽と労作時の息切れがある。",
+      vitals:"BP 110/70　HR 98　RR 24　SpO2 92%(room air)",
+      answer:{
+        check:[
+          "<mark>SpO2・呼吸数</mark>を含むバイタル全項目",
+          "誤嚥の既往・普段の嚥下状態・食事形態",
+          "聴診で副雑音の左右差、意識状態の変化"
+        ],
+        danger:[
+          "誤嚥性肺炎からの<mark>急速な呼吸不全</mark>",
+          "SpO2低下と意識低下が同時にあれば<mark>敗血症性ショック</mark>への進展を疑う"
+        ],
+        tests:[
+          "胸部X線／CT",
+          "<mark>抗菌薬投与前</mark>の喀痰培養",
+          "血液培養2セット、酸素投与を並行して開始",
+          "誤嚥を想定するなら嫌気性菌カバーを検討"
+        ]
+      }
+    },
+    {
+      id:"uti", num:2, cat:"infectious", tag:"尿路",
+      title:"尿路感染症", hint:"82歳女性・尿道カテーテル留置中・入院10日目の発熱", illo:"catheter",
+      vignette:"82歳女性。大腿骨骨折術後で尿道カテーテル留置中。入院10日目、38.7℃の発熱と悪寒戦慄が出現。",
+      vitals:"BP 100/60　HR 110　RR 20　SpO2 97%　悪寒戦慄あり",
+      answer:{
+        check:[
+          "悪寒戦慄・頻脈など<mark>菌血症を疑う所見</mark>の有無",
+          "<mark>尿道カテーテル内の尿の性状</mark>（混濁・血尿・悪臭など）を実際に確認する",
+          "カテーテル留置期間、CVA（肋骨脊柱角）叩打痛"
+        ],
+        danger:[
+          "腎盂腎炎から<mark>尿路性敗血症（urosepsis）</mark>への進展",
+          "悪寒戦慄がある時点で菌血症を疑ってバイタルを頻回に確認する"
+        ],
+        tests:[
+          "尿培養（可能ならカテーテル交換後に採取）",
+          "発熱を伴う急性腎盂腎炎は<mark>重症所見の有無にかかわらず菌血症を来しやすく、血液培養を積極的に提出</mark>する",
+          "腎機能・乳酸値で重症度を評価"
+        ]
+      }
+    },
+    {
+      id:"ssi", num:3, cat:"infectious", tag:"手術部位／デバイス",
+      title:"SSI（手術部位感染）・デバイス感染", hint:"68歳男性・大腸癌術後7日目・ドレーン留置中の発熱", illo:"dressing",
+      vignette:"68歳男性。大腸癌術後7日目。38.4℃の発熱があり、創部周囲にやや発赤がある。ドレーンも留置されている。",
+      vitals:"BT 38.4℃　BP 116/72　HR 96　創部：軽度発赤　ドレーン留置中",
+      answer:{
+        check:[
+          "<mark>創部・ドレーン刺入部・体内に入っている全てのデバイスを実際に見て触る</mark>",
+          "術後経過日数と手術内容",
+          "腹部所見（圧痛・反跳痛など）"
+        ],
+        danger:[
+          "創部だけ見て安心し、<mark>深部膿瘍や縫合不全（腹腔内感染）を見逃す</mark>こと",
+          "腹膜炎徴候を見落とすと急速に悪化しうる"
+        ],
+        tests:[
+          "創部培養",
+          "<mark>造影CTで深部膿瘍を検索</mark>",
+          "必要に応じ外科的ドレナージ、血液培養も併せて提出"
+        ]
+      }
+    },
+    {
+      id:"cdi", num:4, cat:"infectious", tag:"腸管",
+      title:"CDI（Clostridioides difficile感染症）", hint:"80歳女性・抗菌薬治療5日目・水様便を伴う発熱", illo:"isolation",
+      vignette:"80歳女性。肺炎で抗菌薬治療中。治療5日目、38.0℃の発熱とともに1日5回の水様便が出現した。",
+      vitals:"BT 38.0℃　BP 108/68　HR 96　水様便 5回/日　抗菌薬投与5日目",
+      answer:{
+        check:[
+          "<mark>抗菌薬使用歴</mark>と使用期間",
+          "便の性状・回数、脱水徴候",
+          "腹部所見（腹部膨満・圧痛）"
+        ],
+        danger:[
+          "<mark>検査結果を待つ前に隔離を後回しにして院内伝播</mark>させてしまうこと",
+          "重症型（中毒性巨大結腸症など）の見逃し"
+        ],
+        tests:[
+          "<mark>まず個室隔離・接触予防策を先に開始</mark>してから検査へ",
+          "便中CDトキシン／GDH／PCR（施設の検査手順に従う）",
+          "不要な整腸剤・止痢薬は避ける"
+        ]
+      }
+    },
+    {
+      id:"crbsi_fn", num:5, cat:"infectious", tag:"血管内デバイス／血液・腫瘍",
+      title:"CRBSI合併の発熱性好中球減少症", hint:"58歳女性・化学療法後10日目・中心静脈カテーテル留置中の悪寒を伴う発熱", illo:"centralline_fn",
+      vignette:"58歳女性。血液腫瘍性疾患に対する化学療法後10日目。中心静脈カテーテル（CVC）を留置しTPN管理中。悪寒戦慄を伴う39.2℃の発熱が出現した。咳・排尿時痛・下痢など局所症状ははっきりしない。",
+      vitals:"BP 100/62　HR 112　RR 20　SpO2 96%",
+      answer:{
+        check:[
+          "<mark>好中球数（ANC）</mark>とバイタルサイン",
+          "カテーテル刺入部を実際に見て触る（発赤・圧痛・排膿）",
+          "口腔内・肛門周囲・皮膚など、カテーテル以外の感染巣もあわせて検索"
+        ],
+        danger:[
+          "好中球減少があると<mark>刺入部の発赤・排膿などの局所炎症所見が乏しくなる</mark>ため、所見がないからとCRBSIを否定できない",
+          "局所症状が乏しくても<mark>急速に敗血症性ショックへ進展</mark>しうる",
+          "好中球減少時の<mark>直腸診・浣腸・坐薬は原則禁忌</mark>（粘膜損傷から菌血症を誘発）",
+          "TPN管理中は<mark>カンジダ血症</mark>など真菌感染も念頭に置く"
+        ],
+        tests:[
+          "<mark>末梢静脈とカテーテルの両方から同時に血液培養</mark>を採取",
+          "身体所見を丁寧に確認したうえで、<mark>速やかに広域抗菌薬（PIPC/TAZ、CFPM、MEPMなど）を開始</mark>（来院後1時間以内が目標）",
+          "感染が強く疑われ全身状態が不安定なら<mark>カテーテル抜去</mark>を検討"
+        ]
+      }
+    },
+    {
+      id:"dvt", num:6, cat:"noninfectious", tag:"血栓症",
+      title:"DVT（深部静脈血栓症）", hint:"75歳男性・臥床中・片側下腿腫脹を伴う微熱", illo:"legHighlight",
+      vignette:"75歳男性。大腿骨頸部骨折術後で臥床が続いている。術後4日目、37.8℃の微熱が持続。片側の下腿にやや腫脹があるが、本人からの訴えは乏しい。",
+      vitals:"BT 37.8℃　BP 126/80　HR 92　SpO2 96%　左下腿：軽度腫脹",
+      answer:{
+        check:[
+          "<mark>両側のふくらはぎを実際に見て、触って左右差を確認</mark>する",
+          "腫脹・疼痛・発赤の有無、周径差",
+          "臥床期間や術式などのリスク因子"
+        ],
+        danger:[
+          "微熱だけでは<mark>見逃されやすい</mark>",
+          "見逃すと<mark>肺塞栓症（PE）</mark>へ進展し、突然の呼吸困難やSpO2低下を来しうる"
+        ],
+        tests:[
+          "下肢静脈エコー",
+          "Dダイマー",
+          "PEを疑う場合は呼吸数・SpO2を評価しCTPAを検討"
+        ]
+      }
+    },
+    {
+      id:"pseudogout", num:7, cat:"noninfectious", tag:"関節",
+      title:"偽痛風・結晶性関節炎（化膿性関節炎の除外）", hint:"85歳女性・術後3日目・膝関節腫脹を伴う発熱", illo:"kneeHighlight",
+      vignette:"85歳女性。認知症があり、大腿骨骨折術後3日目に38.2℃の発熱。膝関節に腫脹と熱感があるが、本人の訴えははっきりしない。",
+      vitals:"BT 38.2℃　BP 130/78　HR 90　右膝：腫脹・熱感あり",
+      answer:{
+        check:[
+          "<mark>訴えが乏しくても、全身の関節（特に膝・手首）を実際に触って</mark>腫脹・熱感・可動域を確認する",
+          "既往（変形性関節症・偽痛風の既往など）",
+          "単関節か多関節か"
+        ],
+        danger:[
+          "<mark>偽痛風と細菌性関節炎（化膿性関節炎）の鑑別</mark>ができていないまま経過観察してしまうこと",
+          "高齢者・認知症では訴えが乏しく、発見が遅れやすい"
+        ],
+        tests:[
+          "<mark>関節穿刺</mark>（関節液の結晶・培養・細胞数・グラム染色）で化膿性関節炎を除外する",
+          "CRPなどの炎症反応",
+          "X線で軟骨石灰化（chondrocalcinosis）を確認"
+        ]
+      }
+    },
+    {
+      id:"drugfever", num:8, cat:"noninfectious", tag:"薬剤性",
+      title:"薬剤熱・薬疹", hint:"60歳男性・抗菌薬投与1週間後の再発熱（皮疹なし）", illo:"pill",
+      vignette:"60歳男性。肺炎治療のためβラクタム系抗菌薬を投与中。一度解熱していたが、投与開始1週間後に再び38.5℃の発熱が出現。皮疹はなく、本人は比較的元気で新たな感染巣も見当たらない。",
+      vitals:"BP 122/76　HR 88（発熱の割に脈拍が上がりにくい）　SpO2 98%　皮疹なし",
+      answer:{
+        check:[
+          "薬剤リストと、<mark>投与開始・変更の時期と発熱のタイミングの一致</mark>",
+          "発熱の割に本人が元気（比較的徐脈を伴うこともある）",
+          "<mark>皮疹がなくても薬剤熱は否定できない</mark>"
+        ],
+        danger:[
+          "「治療中の発熱＝治療不応・再燃」と決めつけて抗菌薬を安易に追加・変更してしまうこと",
+          "本当に感染が再燃している可能性を先に除外せずに済ませてしまうこと",
+          "同じ薬剤性の反応でも<mark>アナフィラキシー</mark>（血圧低下・気道症状・蕁麻疹や血管浮腫など）を示唆する所見がないかは常に確認する（今回のような緩徐な経過は薬剤熱に典型的）"
+        ],
+        tests:[
+          "好酸球数のチェック",
+          "まず他の感染巣・膿瘍がないかを除外する",
+          "被疑薬を中止したうえでの<mark>解熱経過（fever curve）の観察</mark>"
+        ]
+      }
+    }
+  ];
+
+  var PROMPTS = [
+    {key:"check", label:"最初に確認すること", ph:"バイタル、既往、身体診察で見るべき部位など…"},
+    {key:"danger", label:"見落とすと危険な病態", ph:"進展しうる重篤な病態、見逃しやすいポイントなど…"},
+    {key:"tests", label:"必要な検査・対応", ph:"培養、画像、初期対応など…"}
+  ];
+
+  var FLOW = [
+    {t:"バイタルサイン", d:"まず測る。気道・呼吸・循環（ABC）とSpO2・意識レベルを確認する。"},
+    {t:"重症度", d:"ショック徴候・qSOFAなどでwarning signsの有無を評価する。"},
+    {t:"原因検索", d:"病歴・身体診察・体内の全デバイスを実際に見て触り、フォーカスを探す。"},
+    {t:"必要検査", d:"血液培養2セットを基本に、疑うフォーカスに応じた培養・画像検査を追加する。"},
+    {t:"抗菌薬", d:"適応があれば早期に投与する。培養提出を優先しつつ、重症なら投与を遅らせない。"},
+    {t:"上級医への早期共有", d:"一人で抱え込まない。判断に迷う・重症感がある時点で早めに相談する。"}
+  ];
+
+  var ILLO_ACCESSORIES = {
+    mask:
+      '<path d="M60 58 Q52 62 56 70 Q60 76 68 72 Q74 68 70 60 Q66 56 60 58 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.8"/>'
+      + '<path d="M64 58 Q72 46 66 36" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>'
+      + '<path d="M58 66 Q44 62 38 48 Q34 38 26 30" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>',
+    catheter:
+      '<path d="M150 96 q-4 18 -22 22" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>'
+      + '<line x1="119" y1="116" x2="119" y2="120" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      + '<rect x="104" y="120" width="30" height="24" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/>'
+      + '<line x1="108" y1="130" x2="130" y2="130" stroke="var(--accent)" stroke-width="1"/>'
+      + '<line x1="108" y1="138" x2="130" y2="138" stroke="var(--accent)" stroke-width="1"/>',
+    centralline:
+      '<circle cx="104" cy="58" r="4.5" fill="var(--accent)"/>'
+      + '<rect x="99" y="54" width="10" height="4" rx="1.5" fill="var(--accent)" opacity="0.7"/>'
+      + '<path d="M265 42 Q200 50 108 58" fill="none" stroke="var(--ink-soft)" stroke-width="1.6"/>'
+      + '<ellipse cx="266" cy="140" rx="13" ry="4" fill="var(--line)"/>'
+      + '<line x1="266" y1="18" x2="266" y2="140" stroke="var(--ink-soft)" stroke-width="2.2"/>'
+      + '<path d="M260 18 q6 -8 12 0" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>'
+      + '<rect x="250" y="4" width="22" height="26" rx="5" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/>'
+      + '<rect x="261" y="32" width="8" height="10" rx="2" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.3"/>',
+    shield:
+      '<path d="M228 8 l16 6 v14 q0 14 -16 20 q-16 -6 -16 -20 v-14 z" fill="var(--surface)" stroke="var(--bad)" stroke-width="2"/>'
+      + '<path d="M220 14 l8 24" stroke="var(--bad)" stroke-width="2" stroke-linecap="round"/>',
+    pill:
+      '<rect x="196" y="10" width="24" height="8" rx="2" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.5"/>'
+      + '<rect x="200" y="16" width="16" height="24" rx="3" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5"/>'
+      + '<line x1="200" y1="24" x2="216" y2="24" stroke="var(--accent)" stroke-width="1.5"/>'
+      + '<ellipse cx="232" cy="30" rx="5" ry="3" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.2" transform="rotate(20 232 30)"/>'
+      + '<ellipse cx="240" cy="22" rx="5" ry="3" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.2" transform="rotate(-15 240 22)"/>',
+    legHighlight:
+      '<ellipse cx="228" cy="84" rx="20" ry="17" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="4 4"/>'
+      + '<ellipse cx="228" cy="84" rx="14" ry="11" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.8" opacity="0.9"/>'
+      + '<path d="M228 63 v-8 M246 76 l6 -5 M246 92 l6 5" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" fill="none"/>',
+    kneeHighlight:
+      '<ellipse cx="185" cy="78" rx="21" ry="18" fill="none" stroke="var(--bad)" stroke-width="2.2" stroke-dasharray="4 4"/>'
+      + '<ellipse cx="185" cy="78" rx="15" ry="13" fill="var(--bad-tint)" stroke="var(--bad)" stroke-width="2" opacity="0.85"/>'
+      + '<path d="M185 60 v-7 M203 68 l6 -5 M203 88 l6 5" stroke="var(--bad)" stroke-width="2" stroke-linecap="round" fill="none"/>',
+    dressing:
+      '<rect x="139" y="65" width="34" height="24" rx="5" fill="none" stroke="var(--bad)" stroke-width="1.3" opacity="0.5"/>'
+      + '<rect x="142" y="68" width="28" height="18" rx="3" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.6"/>'
+      + '<line x1="147" y1="68" x2="147" y2="86" stroke="var(--accent)" stroke-width="1.1"/>'
+      + '<line x1="165" y1="68" x2="165" y2="86" stroke="var(--accent)" stroke-width="1.1"/>'
+      + '<line x1="142" y1="77" x2="170" y2="77" stroke="var(--accent)" stroke-width="1.1" opacity="0.6"/>'
+      + '<path d="M170 86 q16 8 22 22" fill="none" stroke="var(--ink-soft)" stroke-width="1.8"/>'
+      + '<ellipse cx="196" cy="120" rx="9" ry="8" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/>',
+    isolation:
+      '<line x1="130" y1="112" x2="130" y2="118" stroke="var(--ink-soft)" stroke-width="1.5"/>'
+      + '<path d="M120 118 q10 -8 20 0 l4 8 l-6 4 v18 h-16 v-18 l-6 -4 z" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="1.6"/>'
+  };
+  ILLO_ACCESSORIES.centralline_fn = ILLO_ACCESSORIES.centralline + ILLO_ACCESSORIES.shield;
+
+  function illustrationSVG(kind){
+    var base = ''
+      // grounding shadow
+      + '<ellipse cx="150" cy="138" rx="150" ry="5" fill="var(--ink)" opacity="0.05"/>'
+      // bed frame: headboard, footboard, mattress, wheels
+      + '<rect x="6" y="12" width="16" height="110" rx="6" fill="var(--line)"/>'
+      + '<rect x="276" y="48" width="16" height="62" rx="6" fill="var(--line)"/>'
+      + '<rect x="20" y="34" width="250" height="74" rx="18" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2"/>'
+      + '<circle cx="40" cy="132" r="6" fill="var(--line)"/>'
+      + '<circle cx="250" cy="132" r="6" fill="var(--line)"/>'
+      // bedside monitor, always present for hospital atmosphere
+      + '<rect x="2" y="16" width="22" height="17" rx="3" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>'
+      + '<path d="M5 26 l3 -6 l3 8 l3 -9 l3 5 l5 0" fill="none" stroke="var(--good)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>'
+      // pillow (with soft shading)
+      + '<ellipse cx="68" cy="60" rx="32" ry="20" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>'
+      + '<ellipse cx="68" cy="68" rx="26" ry="10" fill="var(--surface-2)" opacity="0.6"/>'
+      // body under blanket (organic silhouette: shoulders, torso, tapering legs)
+      + '<path d="M88 50 C108 40 148 38 182 40 C214 42 238 48 246 62 C250 72 248 84 234 90 C200 102 132 102 100 94 C85 90 78 80 78 68 C78 60 82 54 88 50 Z" fill="var(--primary-tint)" stroke="var(--primary)" stroke-width="2"/>'
+      // feet, peeking out at foot end of the blanket
+      + '<ellipse cx="228" cy="64" rx="11" ry="9" fill="var(--primary-tint)" stroke="var(--primary)" stroke-width="1.5"/>'
+      + '<ellipse cx="228" cy="84" rx="11" ry="9" fill="var(--primary-tint)" stroke="var(--primary)" stroke-width="1.5"/>'
+      // blanket fold lines
+      + '<path d="M92 66 q50 18 130 6" fill="none" stroke="var(--primary)" stroke-width="1.4" opacity="0.45"/>'
+      + '<path d="M104 82 q60 12 118 2" fill="none" stroke="var(--primary)" stroke-width="1.1" opacity="0.3"/>'
+      // head with simple face
+      + '<ellipse cx="62" cy="52" rx="15" ry="16" fill="var(--primary-tint)" stroke="var(--ink-soft)" stroke-width="2"/>'
+      + '<path d="M48 50 Q50 34 62 34 Q74 34 76 50 Q68 42 62 42 Q56 42 48 50 Z" fill="var(--ink-soft)" opacity="0.85"/>'
+      + '<ellipse cx="76" cy="54" rx="3" ry="4" fill="var(--primary-tint)" stroke="var(--ink-soft)" stroke-width="1.2"/>'
+      + '<path d="M56 54 q4 3 8 0" fill="none" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round"/>'
+      + '<path d="M66 56 q2 2 0 4" fill="none" stroke="var(--ink-soft)" stroke-width="1.1" stroke-linecap="round"/>'
+      + '<path d="M58 64 q4 2 7 0" fill="none" stroke="var(--ink-soft)" stroke-width="1.3" stroke-linecap="round"/>'
+      // arm bent, resting on top of the blanket
+      + '<path d="M96 56 Q116 64 118 80 Q119 90 128 96" fill="none" stroke="var(--ink-soft)" stroke-width="6" stroke-linecap="round"/>'
+      + '<ellipse cx="131" cy="98" rx="8" ry="6" fill="var(--primary-tint)" stroke="var(--ink-soft)" stroke-width="1.8" transform="rotate(15 131 98)"/>';
+    var accessory = ILLO_ACCESSORIES[kind] || "";
+    return '<svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">' + base + accessory + '</svg>';
+  }
+
+  var STORE_KEY = "hatsunetsu30_progress_v1";
+
+  function loadProgress(){
+    try{
+      return JSON.parse(localStorage.getItem(STORE_KEY)) || {};
+    }catch(e){ return {}; }
+  }
+  function saveProgress(p){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(p)); }catch(e){}
+  }
+
+  var state = {
+    view:"home",          // home | case | keitai
+    caseId:null,
+    reviewOnly:false,
+    progress: loadProgress()
+  };
+
+  var app = document.getElementById("app");
+
+  function escapeHtml(s){
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  function statusLabel(s){
+    if(s==="good") return "自力で言えた";
+    if(s==="partial") return "一部抜けた";
+    if(s==="poor") return "ほぼ言えなかった";
+    return "未挑戦";
+  }
+
+  function caseById(id){
+    for(var i=0;i<CASES.length;i++){ if(CASES[i].id===id) return CASES[i]; }
+    return null;
+  }
+
+  function completedCount(){
+    var n=0;
+    for(var i=0;i<CASES.length;i++){ if(state.progress[CASES[i].id]) n++; }
+    return n;
+  }
+  function reviewCases(){
+    return CASES.filter(function(c){
+      var s = state.progress[c.id];
+      return s === "partial" || s === "poor";
+    });
+  }
+
+  function go(view, caseId){
+    state.view = view;
+    state.caseId = caseId || null;
+    render();
+    window.scrollTo(0,0);
+  }
+
+  /* ---------------- RENDER: HOME ---------------- */
+  function renderHome(){
+    var done = completedCount();
+    var total = CASES.length;
+    var pct = Math.round(done/total*100);
+    var rev = reviewCases();
+
+    var circumference = 2*Math.PI*24;
+    var offset = circumference * (1 - pct/100);
+
+    var html = "";
+    html += '<div class="hero">';
+    html += '  <div class="eyebrow">院内発熱 初動トレーニング</div>';
+    html += '  <h1>院内発熱<br>30秒トレーニング</h1>';
+    html += '  <p>当直中に出会う院内発熱8症例。答えを見る前に、自分の言葉で「最初に確認すること」「見落とすと危険な病態」「必要な検査・対応」を書き出してみましょう。</p>';
+    html += '</div>';
+
+    html += '<div class="progress-card">';
+    html += '  <div class="progress-ring"><svg width="56" height="56"><circle cx="28" cy="28" r="24" stroke="var(--surface-2)" stroke-width="5" fill="none"/><circle cx="28" cy="28" r="24" stroke="var(--primary)" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="'+circumference+'" stroke-dashoffset="'+offset+'"/></svg><div class="pct">'+pct+'%</div></div>';
+    html += '  <div class="progress-text"><div class="num">'+done+' / '+total+' 症例 挑戦済み</div><div class="sub">'+(rev.length ? "復習対象が "+rev.length+" 症例あります" : "未挑戦、または全て自力で言えています")+'</div></div>';
+    if(rev.length){
+      html += '  <button class="review-pill-btn" data-action="toggle-review">復習</button>';
+    }
+    html += '</div>';
+
+    html += '<div class="keitai-cta" data-action="goto-keitai"><div><div class="t">院内発熱の「型」を見る</div><div class="s">バイタル→重症度→原因検索→検査→抗菌薬→上級医への共有</div></div><div class="arrow">›</div></div>';
+
+    if(state.reviewOnly){
+      html += '<div class="section-head"><span class="dot" style="background:var(--warn)"></span><h2>復習対象の症例</h2><span class="count">'+rev.length+'件</span></div>';
+      if(rev.length===0){
+        html += '<div class="empty-review">復習対象の症例はありません。<br>「ホームに戻る」から一覧を確認できます。</div>';
+      } else {
+        html += '<div class="case-grid">'+rev.map(caseCardHtml).join("")+'</div>';
+      }
+    } else {
+      var infectious = CASES.filter(function(c){return c.cat==="infectious";});
+      var noninfectious = CASES.filter(function(c){return c.cat==="noninfectious";});
+      html += '<div class="section-head infectious"><span class="dot"></span><h2>感染性の原因</h2><span class="count">'+infectious.length+'症例</span></div>';
+      html += '<div class="case-grid">'+infectious.map(caseCardHtml).join("")+'</div>';
+      html += '<div class="section-head noninfectious"><span class="dot"></span><h2>非感染性の原因</h2><span class="count">'+noninfectious.length+'症例</span></div>';
+      html += '<div class="case-grid">'+noninfectious.map(caseCardHtml).join("")+'</div>';
+    }
+
+    return html;
+  }
+
+  function caseCardHtml(c){
+    var status = state.progress[c.id] || "none";
+    var numStr = (c.num<10?"0":"")+c.num;
+    return '<button class="case-card" data-action="open-case" data-id="'+c.id+'">'+
+      '<span class="case-num">'+numStr+'</span>'+
+      '<span class="case-body"><span class="hint">'+c.hint+'</span></span>'+
+      '<span class="status-chip '+status+'">'+statusLabel(status)+'</span>'+
+    '</button>';
+  }
+
+  /* ---------------- RENDER: CASE ---------------- */
+  var revealCache = {}; // caseId -> bool (revealed) — session only, resets per page load intentionally? keep in memory across nav within session
+  var draftCache = {};  // caseId -> {check,danger,tests}
+  var pendingStatus = {}; // caseId -> chosen status this session (before/while confirming)
+
+  function renderCase(c){
+    var html = "";
+    html += '<div class="case-hero"><div class="tag">症例 '+(c.num<10?"0":"")+c.num+'</div><h1>'+c.hint+'</h1></div>';
+    html += '<div class="illustration-wrap">'+illustrationSVG(c.illo)+'</div>';
+    html += '<div class="vignette">'+c.vignette+'<div class="vitals-line"><b>vitals　</b>'+c.vitals+'</div></div>';
+
+    var revealed = !!revealCache[c.id];
+    var drafts = draftCache[c.id] || {};
+
+    html += '<div id="prompts">';
+    PROMPTS.forEach(function(p, i){
+      html += '<div class="prompt-block">';
+      html += '<label><span class="n">'+(i+1)+'.</span>'+p.label+'</label>';
+      html += '<textarea data-field="'+p.key+'" placeholder="'+p.ph+'">'+ (drafts[p.key] ? escapeHtml(drafts[p.key]) : "") +'</textarea>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    if(!revealed){
+      html += '<button class="reveal-btn" data-action="reveal">模範解答を見る</button>';
+    } else {
+      html += renderAnswer(c);
+    }
+
+    return html;
+  }
+
+  function renderAnswer(c){
+    var catLabel = c.cat==="infectious" ? "感染性の原因" : "非感染性の原因";
+    var html = '<div class="answer-wrap">';
+    html += '<div class="diagnosis-reveal"><div class="dr-eyebrow">正解</div><div class="dr-title">'+c.title+'</div><div class="dr-sub">'+catLabel+'・'+c.tag+'</div></div>';
+    html += '<div class="divider"><div class="line"></div><span>模範解答</span><div class="line"></div></div>';
+
+    html += answerCard("check","最初に確認すること", c.answer.check);
+    html += answerCard("danger","見落とすと危険な病態", c.answer.danger);
+    html += answerCard("tests","必要な検査・対応", c.answer.tests);
+
+    html += '</div>';
+
+    html += '<div class="assess-block">';
+    html += '<div class="q">自分の答えと照らし合わせて、自己評価しましょう</div>';
+    var cur = pendingStatus[c.id] || state.progress[c.id] || "";
+    html += '<div class="assess-row">';
+    html += assessBtn("good","自力で言えた", cur);
+    html += assessBtn("partial","一部抜けた", cur);
+    html += assessBtn("poor","ほぼ言えなかった", cur);
+    html += '</div></div>';
+
+    if(cur){
+      html += '<div class="after-assess">';
+      html += '<button class="nav-btn primary" data-action="next-case">次の症例へ</button>';
+      html += '<button class="nav-btn ghost" data-action="goto-home">ホームに戻る</button>';
+      html += '</div>';
+    }
+
+    return html;
+  }
+
+  function answerCard(kind, label, items){
+    var iconChar = kind==="check" ? "1" : kind==="danger" ? "!" : "2";
+    return '<div class="answer-card"><h3><span class="ico '+kind+'">'+iconChar+'</span>'+label+'</h3>'+
+      '<ul>'+items.map(function(t){return '<li>'+t+'</li>';}).join("")+'</ul></div>';
+  }
+
+  function assessBtn(kind, label, cur){
+    return '<button class="assess-btn '+kind+(cur===kind?' active':'')+'" data-action="assess" data-kind="'+kind+'">'+label+'</button>';
+  }
+
+  /* ---------------- RENDER: KEITAI ---------------- */
+  function renderKeitai(){
+    var html = "";
+    html += '<div class="keitai-hero"><div class="eyebrow">院内発熱の型</div><h1>どの症例でも、まずこの順番で考える</h1><p>原因が何であれ、院内発熱の初動はこの6ステップが基本の型になります。症例ごとの知識より先に、この流れを体に染み込ませましょう。</p></div>';
+    html += '<div class="flow">';
+    FLOW.forEach(function(f,i){
+      html += '<div class="flow-step">';
+      html += '<div class="rail"><div class="node">'+(i+1)+'</div>'+(i<FLOW.length-1?'<div class="stem"></div>':'')+'</div>';
+      html += '<div class="content"><h3>'+f.t+'</h3><p>'+f.d+'</p></div>';
+      html += '</div>';
+    });
+    html += '</div>';
+    html += '<div class="keitai-foot">迷ったら、この6つに立ち返る。</div>';
+    return html;
+  }
+
+  /* ---------------- MASTER RENDER ---------------- */
+  function render(){
+    var topbarHtml, mainHtml;
+
+    if(state.view==="home"){
+      topbarHtml = state.reviewOnly
+        ? '<button class="back" data-action="goto-home-full">‹ 一覧</button><div class="title">復習リスト</div>'
+        : '<div class="title">院内発熱30秒トレーニング</div>';
+      mainHtml = renderHome();
+    } else if(state.view==="case"){
+      var c = caseById(state.caseId);
+      var numStr = (c.num<10?"0":"")+c.num;
+      topbarHtml = '<button class="back" data-action="goto-home">‹ 一覧</button><div class="title">症例 '+numStr+'</div>';
+      mainHtml = renderCase(c);
+    } else if(state.view==="keitai"){
+      topbarHtml = '<button class="back" data-action="goto-home">‹ 一覧</button><div class="title">院内発熱の型</div>';
+      mainHtml = renderKeitai();
+    }
+
+    app.innerHTML = '<div class="topbar">'+topbarHtml+'</div><main>'+mainHtml+'</main>';
+    bindEvents();
+  }
+
+  /* ---------------- EVENTS ---------------- */
+  function bindEvents(){
+    app.querySelectorAll("[data-action]").forEach(function(el){
+      el.addEventListener("click", function(){
+        var action = el.getAttribute("data-action");
+        if(action==="open-case"){
+          revealCache[el.getAttribute("data-id")] = false;
+          delete pendingStatus[el.getAttribute("data-id")];
+          go("case", el.getAttribute("data-id"));
+        } else if(action==="goto-home"){
+          state.reviewOnly = false;
+          go("home");
+        } else if(action==="goto-home-full"){
+          state.reviewOnly = false;
+          render();
+        } else if(action==="toggle-review"){
+          state.reviewOnly = true;
+          render();
+        } else if(action==="goto-keitai"){
+          go("keitai");
+        } else if(action==="reveal"){
+          collectDraft(state.caseId);
+          revealCache[state.caseId] = true;
+          render();
+          var wrap = app.querySelector(".answer-wrap");
+          if(wrap) wrap.scrollIntoView({behavior:"smooth", block:"start"});
+        } else if(action==="assess"){
+          var kind = el.getAttribute("data-kind");
+          pendingStatus[state.caseId] = kind;
+          state.progress[state.caseId] = kind;
+          saveProgress(state.progress);
+          render();
+        } else if(action==="next-case"){
+          var c = caseById(state.caseId);
+          var nextIdx = c.num % CASES.length; // num is 1-indexed
+          var next = CASES[nextIdx];
+          revealCache[next.id] = false;
+          delete pendingStatus[next.id];
+          go("case", next.id);
+        }
+      });
+    });
+
+    app.querySelectorAll("textarea[data-field]").forEach(function(ta){
+      ta.addEventListener("input", function(){
+        collectDraft(state.caseId);
+      });
+    });
+  }
+
+  function collectDraft(caseId){
+    var d = {};
+    app.querySelectorAll("textarea[data-field]").forEach(function(ta){
+      d[ta.getAttribute("data-field")] = ta.value;
+    });
+    draftCache[caseId] = d;
+  }
+
+  render();
+})();
+</script>
