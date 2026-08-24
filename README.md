@@ -8,11 +8,13 @@
 
 ## ▶ アプリを開く
 
-**[claude.ai/code/artifact/5e58a2f8-b10e-47b5-860d-464c63b2a462](https://claude.ai/code/artifact/5e58a2f8-b10e-47b5-860d-464c63b2a462)**
+**[namazu1995-coder.github.io/hatsunetsu-30sec-training](https://namazu1995-coder.github.io/hatsunetsu-30sec-training/)**
 
-GitHub上で `hatsunetsu-training.html` を直接開いてもソースコードが表示されるだけで、アプリとしては動きません。上のリンクから開くか、下のQRコードをスマホのカメラで読み取ってください。
+ログイン不要・誰でもこのリンクから開けます。GitHub上で `hatsunetsu-training.html` を直接開いてもソースコードが表示されるだけで、アプリとしては動きません。上のリンクから開くか、下のQRコードをスマホのカメラで読み取ってください。
 
 <img src="hatsunetsu_qr.png" alt="アプリへのQRコード" width="200">
+
+Claudeでの試作段階で作った版はこちら: [claude.ai/code/artifact/5e58a2f8-b10e-47b5-860d-464c63b2a462](https://claude.ai/code/artifact/5e58a2f8-b10e-47b5-860d-464c63b2a462)(閲覧にはClaudeへのログインが必要な場合があります)
 
 ## 使い方
 
