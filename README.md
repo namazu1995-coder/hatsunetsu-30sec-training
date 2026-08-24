@@ -1,8 +1,18 @@
 # 院内発熱30秒トレーニング
 
-初期研修医が当直中に遭遇しやすい「院内発熱」の初動を、短い症例で繰り返し学ぶためのスマートフォン向けWebアプリです。
+[![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-D97757?logo=anthropic&logoColor=white)](https://claude.com/claude-code)
+
+初期研修医が当直中に遭遇しやすい「院内発熱」の初動を、短い症例で繰り返し学ぶためのスマートフォン向けWebアプリです。このリポジトリのコード・症例・イラストはすべて [Claude Code](https://claude.com/claude-code) との対話で作成しました。
 
 診療支援や正解の暗記が目的ではなく、緊急時に重要な考え方を**自力で取り出せるようにすること**を目的としています。
+
+## ▶ アプリを開く
+
+**[claude.ai/code/artifact/5e58a2f8-b10e-47b5-860d-464c63b2a462](https://claude.ai/code/artifact/5e58a2f8-b10e-47b5-860d-464c63b2a462)**
+
+GitHub上で `hatsunetsu-training.html` を直接開いてもソースコードが表示されるだけで、アプリとしては動きません。上のリンクから開くか、下のQRコードをスマホのカメラで読み取ってください。
+
+<img src="hatsunetsu_qr.png" alt="アプリへのQRコード" width="200">
 
 ## 使い方
 
@@ -40,10 +50,9 @@
 
 症例カードには診断名を出さず、デバイス留置や発熱パターンなど軽いヒントのみを表示します。診断名は自己評価の後、模範解答とともに初めて開示されます。
 
-## 開き方
+## オフラインで使う場合
 
-- `hatsunetsu-training.html` をブラウザで直接開く(外部通信なし、単体で動作します)
-- または `hatsunetsu_qr.png` をスマートフォンのカメラで読み取る(公開先のURLを埋め込んだQRコードです)
+`hatsunetsu-training.html` はこのリポジトリをクローン(またはダウンロード)して、ブラウザで直接開くだけで単体で動作します(外部通信不要、進捗はブラウザのlocalStorageに保存されます)。
 
 ## ファイル構成
 
