@@ -431,7 +431,7 @@
     },
     {
       id:"crbsi_fn", num:5, cat:"infectious", tag:"血管内デバイス／血液・腫瘍",
-      title:"CRBSI合併の発熱性好中球減少症", hint:"58歳女性・化学療法後10日目・中心静脈カテーテル留置中の悪寒を伴う発熱", illo:"centralline_fn",
+      title:"CRBSI合併の発熱性好中球減少症", hint:"58歳女性・化学療法後10日目・中心静脈カテーテル留置中の悪寒を伴う発熱", illo:"centralline",
       vignette:"58歳女性。血液腫瘍性疾患に対する化学療法後10日目。中心静脈カテーテル（CVC）を留置しTPN管理中。悪寒戦慄を伴う39.2℃の発熱が出現した。咳・排尿時痛・下痢など局所症状ははっきりしない。",
       vitals:"BP 100/62　HR 112　RR 20　SpO2 96%",
       answer:{
@@ -540,52 +540,55 @@
 
   var ILLO_ACCESSORIES = {
     mask:
-      '<path d="M58 82 Q48 88 54 98 Q60 106 70 100 Q78 94 72 84 Q66 78 58 82 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>'
-      + '<path d="M62 82 Q78 66 70 50" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>'
-      + '<path d="M54 92 Q36 88 30 70 Q26 56 14 46" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>',
+      '<path d="M64 88 Q54 94 60 104 Q66 112 76 106 Q84 100 78 90 Q72 84 64 88 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>'
+      + '<path d="M68 88 Q84 70 76 52" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>'
+      + '<path d="M60 98 Q42 94 36 76 Q32 62 20 52" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>',
     catheter:
-      '<path d="M148 128 q-6 22 -26 26" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>'
-      + '<line x1="122" y1="148" x2="122" y2="154" stroke="var(--ink-soft)" stroke-width="2"/>'
-      + '<rect x="104" y="154" width="34" height="20" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
-      + '<line x1="108" y1="162" x2="134" y2="162" stroke="var(--accent)" stroke-width="1.2"/>'
-      + '<line x1="108" y1="169" x2="134" y2="169" stroke="var(--accent)" stroke-width="1.2"/>',
+      '<path d="M188 130 q-4 20 -24 24" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      + '<line x1="164" y1="150" x2="164" y2="156" stroke="var(--ink-soft)" stroke-width="2"/>'
+      + '<rect x="146" y="156" width="34" height="18" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
+      + '<line x1="150" y1="163" x2="176" y2="163" stroke="var(--accent)" stroke-width="1.2"/>'
+      + '<line x1="150" y1="169" x2="176" y2="169" stroke="var(--accent)" stroke-width="1.2"/>',
     centralline:
-      '<circle cx="102" cy="84" r="5" fill="var(--accent)"/>'
-      + '<path d="M104 82 Q190 50 260 40" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      '<circle cx="104" cy="110" r="5" fill="var(--accent)"/>'
+      + '<ellipse cx="104" cy="110" rx="10" ry="8" fill="none" stroke="var(--accent)" stroke-width="1.8"/>'
+      + '<path d="M109 106 Q190 60 260 42" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>'
       + '<ellipse cx="266" cy="152" rx="15" ry="5" fill="var(--ink-soft)"/>'
       + '<line x1="266" y1="18" x2="266" y2="150" stroke="var(--ink-soft)" stroke-width="3"/>'
       + '<rect x="250" y="2" width="26" height="30" rx="7" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
       + '<rect x="262" y="34" width="9" height="11" rx="3" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.6"/>',
-    shield:
-      '<path d="M228 6 l18 7 v16 q0 16 -18 22 q-18 -6 -18 -22 v-16 z" fill="var(--surface)" stroke="var(--bad)" stroke-width="2.5"/>'
-      + '<path d="M219 13 l9 26" stroke="var(--bad)" stroke-width="2.5" stroke-linecap="round"/>',
     pill:
       '<rect x="194" y="8" width="26" height="9" rx="3" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>'
       + '<rect x="198" y="15" width="18" height="27" rx="4" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
       + '<line x1="198" y1="24" x2="216" y2="24" stroke="var(--accent)" stroke-width="1.8"/>'
       + '<ellipse cx="234" cy="26" rx="6" ry="3.6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5" transform="rotate(20 234 26)"/>'
-      + '<ellipse cx="243" cy="17" rx="6" ry="3.6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5" transform="rotate(-15 243 17)"/>',
+      + '<ellipse cx="243" cy="17" rx="6" ry="3.6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5" transform="rotate(-15 243 17)"/>'
+      + '<circle cx="52" cy="64" r="2.1" fill="var(--bad)"/><circle cx="82" cy="62" r="1.9" fill="var(--bad)"/>'
+      + '<circle cx="48" cy="82" r="1.9" fill="var(--bad)"/><circle cx="86" cy="88" r="2.1" fill="var(--bad)"/>'
+      + '<circle cx="64" cy="58" r="1.7" fill="var(--bad)"/>'
+      + '<circle cx="92" cy="104" r="2" fill="var(--bad)"/><circle cx="112" cy="118" r="1.9" fill="var(--bad)"/><circle cx="100" cy="126" r="2" fill="var(--bad)"/>'
+      + '<circle cx="145" cy="112" r="1.9" fill="var(--bad)"/><circle cx="160" cy="126" r="2.1" fill="var(--bad)"/>'
+      + '<circle cx="150" cy="140" r="1.9" fill="var(--bad)"/><circle cx="158" cy="150" r="1.7" fill="var(--bad)"/>',
     legHighlight:
-      '<ellipse cx="238" cy="120" rx="24" ry="20" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="5 5"/>'
-      + '<ellipse cx="238" cy="120" rx="17" ry="13" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2" opacity="0.9"/>'
-      + '<path d="M238 96 v-9 M260 108 l7 -6 M260 132 l7 6" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
+      '<ellipse cx="240" cy="116" rx="24" ry="20" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="5 5"/>'
+      + '<ellipse cx="240" cy="116" rx="17" ry="13" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2" opacity="0.9"/>'
+      + '<path d="M240 92 v-9 M262 104 l7 -6 M262 128 l7 6" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
     kneeHighlight:
-      '<ellipse cx="190" cy="100" rx="24" ry="20" fill="none" stroke="var(--bad)" stroke-width="2.6" stroke-dasharray="5 5"/>'
-      + '<ellipse cx="190" cy="100" rx="17" ry="14" fill="var(--bad-tint)" stroke="var(--bad)" stroke-width="2.2" opacity="0.85"/>'
-      + '<path d="M190 78 v-9 M212 88 l7 -6 M212 112 l7 6" stroke="var(--bad)" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
+      '<ellipse cx="208" cy="112" rx="24" ry="20" fill="none" stroke="var(--bad)" stroke-width="2.6" stroke-dasharray="5 5"/>'
+      + '<ellipse cx="208" cy="112" rx="17" ry="14" fill="var(--bad-tint)" stroke="var(--bad)" stroke-width="2.2" opacity="0.85"/>'
+      + '<path d="M208 90 v-9 M230 100 l7 -6 M230 124 l7 6" stroke="var(--bad)" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
     dressing:
-      '<rect x="140" y="80" width="38" height="27" rx="6" fill="none" stroke="var(--bad)" stroke-width="1.6" opacity="0.5"/>'
-      + '<rect x="144" y="84" width="30" height="19" rx="4" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>'
-      + '<line x1="150" y1="84" x2="150" y2="103" stroke="var(--accent)" stroke-width="1.3"/>'
-      + '<line x1="168" y1="84" x2="168" y2="103" stroke="var(--accent)" stroke-width="1.3"/>'
-      + '<line x1="144" y1="93" x2="174" y2="93" stroke="var(--accent)" stroke-width="1.3" opacity="0.6"/>'
-      + '<path d="M174 103 q18 8 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="2.2"/>'
-      + '<ellipse cx="200" cy="140" rx="10" ry="9" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>',
+      '<rect x="156" y="96" width="38" height="27" rx="6" fill="none" stroke="var(--bad)" stroke-width="1.6" opacity="0.5"/>'
+      + '<rect x="160" y="100" width="30" height="19" rx="4" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>'
+      + '<line x1="166" y1="100" x2="166" y2="119" stroke="var(--accent)" stroke-width="1.3"/>'
+      + '<line x1="184" y1="100" x2="184" y2="119" stroke="var(--accent)" stroke-width="1.3"/>'
+      + '<line x1="160" y1="109" x2="190" y2="109" stroke="var(--accent)" stroke-width="1.3" opacity="0.6"/>'
+      + '<path d="M190 119 q18 8 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="2.2"/>'
+      + '<ellipse cx="214" cy="152" rx="10" ry="9" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>',
     isolation:
       '<line x1="130" y1="134" x2="130" y2="140" stroke="var(--ink-soft)" stroke-width="2"/>'
       + '<path d="M118 140 q12 -10 24 0 l5 9 l-7 5 v20 h-20 v-20 l-7 -5 z" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="2"/>'
   };
-  ILLO_ACCESSORIES.centralline_fn = ILLO_ACCESSORIES.centralline + ILLO_ACCESSORIES.shield;
 
   function illustrationSVG(kind){
     var base = ''
@@ -604,14 +607,17 @@
       // pillow, two soft tones for volume
       + '<rect x="38" y="70" width="94" height="54" rx="27" fill="var(--surface)"/>'
       + '<rect x="46" y="104" width="78" height="18" rx="9" fill="var(--surface-2)"/>'
-      // blanket: bold solid shape + a darker shadow sliver underneath for depth
-      + '<path d="M96 122 C138 136 196 136 232 128 C252 123 262 114 264 104 C263 118 246 130 214 135 C168 143 122 140 100 130 Z" fill="var(--primary-strong)"/>'
-      + '<path d="M92 82 C118 64 176 61 216 66 C248 70 264 82 266 98 C268 114 258 128 232 133 C186 143 128 141 104 130 C87 122 80 106 84 94 C86 88 88 85 92 82 Z" fill="var(--primary)"/>'
-      + '<path d="M100 92 q56 14 150 6" fill="none" stroke="var(--primary-tint)" stroke-width="3" opacity="0.55"/>'
-      + '<path d="M108 108 q66 12 140 2" fill="none" stroke="var(--primary-tint)" stroke-width="2.4" opacity="0.4"/>'
+      // neck/collar: bare skin visible between the head and the blanket line —
+      // this is where a central line is actually placed, kept clearly apart from the arm
+      + '<path d="M84 96 Q106 108 128 100 L126 122 Q102 130 82 120 Z" fill="var(--primary-tint)"/>'
+      // blanket: bold solid shape (starts right of the collar) + a shadow sliver for depth
+      + '<path d="M122 128 C150 140 200 140 236 132 C254 128 264 120 266 110 C265 122 250 132 220 137 C176 145 132 142 112 132 Z" fill="var(--primary-strong)"/>'
+      + '<path d="M122 88 C146 70 184 66 216 70 C246 74 262 84 266 98 C270 108 264 120 240 126 C198 136 148 134 128 124 C114 118 110 106 114 96 C116 92 118 90 122 88 Z" fill="var(--primary)"/>'
+      + '<path d="M128 98 q56 14 148 6" fill="none" stroke="var(--primary-tint)" stroke-width="3" opacity="0.55"/>'
+      + '<path d="M136 112 q64 12 136 2" fill="none" stroke="var(--primary-tint)" stroke-width="2.4" opacity="0.4"/>'
       // feet, peeking out at the foot end of the blanket
-      + '<ellipse cx="238" cy="96" rx="14" ry="12" fill="var(--primary)" stroke="var(--primary-strong)" stroke-width="1.5"/>'
-      + '<ellipse cx="238" cy="120" rx="14" ry="12" fill="var(--primary)" stroke="var(--primary-strong)" stroke-width="1.5"/>'
+      + '<ellipse cx="240" cy="92" rx="14" ry="12" fill="var(--primary)" stroke="var(--primary-strong)" stroke-width="1.5"/>'
+      + '<ellipse cx="240" cy="116" rx="14" ry="12" fill="var(--primary)" stroke="var(--primary-strong)" stroke-width="1.5"/>'
       // head: bold hair block, soft face marks, cheek blush
       + '<ellipse cx="70" cy="78" rx="27" ry="28" fill="var(--primary-tint)"/>'
       + '<path d="M42 78 Q44 46 70 44 Q96 46 98 78 Q84 60 70 60 Q56 60 42 78 Z" fill="var(--ink)"/>'
@@ -619,9 +625,9 @@
       + '<circle cx="56" cy="88" r="5" fill="var(--accent)" opacity="0.25"/>'
       + '<path d="M60 80 q6 5 12 0" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>'
       + '<path d="M62 93 q6 4 11 0" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/>'
-      // arm, bent and resting on top of the blanket, as one solid shape
-      + '<path d="M104 86 Q138 90 148 116 Q150 126 143 132 L126 132 Q116 128 114 116 Q110 98 104 86 Z" fill="var(--primary-tint)"/>'
-      + '<ellipse cx="131" cy="134" rx="14" ry="10" fill="var(--primary-tint)"/>';
+      // arm: emerges from the shoulder well clear of the neck/collar, rests on the blanket
+      + '<path d="M134 98 Q162 104 170 130 Q172 140 164 146 L146 146 Q136 142 134 130 Q130 112 134 98 Z" fill="var(--primary-tint)"/>'
+      + '<ellipse cx="156" cy="148" rx="14" ry="10" fill="var(--primary-tint)"/>';
     var accessory = ILLO_ACCESSORIES[kind] || "";
     return '<svg viewBox="0 0 300 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">' + base + accessory + '</svg>';
   }
