@@ -540,91 +540,90 @@
 
   var ILLO_ACCESSORIES = {
     mask:
-      '<path d="M60 58 Q52 62 56 70 Q60 76 68 72 Q74 68 70 60 Q66 56 60 58 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.8"/>'
-      + '<path d="M64 58 Q72 46 66 36" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>'
-      + '<path d="M58 66 Q44 62 38 48 Q34 38 26 30" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round"/>',
+      '<path d="M58 82 Q48 88 54 98 Q60 106 70 100 Q78 94 72 84 Q66 78 58 82 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>'
+      + '<path d="M62 82 Q78 66 70 50" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>'
+      + '<path d="M54 92 Q36 88 30 70 Q26 56 14 46" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>',
     catheter:
-      '<path d="M150 96 q-4 18 -22 22" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>'
-      + '<line x1="119" y1="116" x2="119" y2="120" stroke="var(--ink-soft)" stroke-width="1.5"/>'
-      + '<rect x="104" y="120" width="30" height="24" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/>'
-      + '<line x1="108" y1="130" x2="130" y2="130" stroke="var(--accent)" stroke-width="1"/>'
-      + '<line x1="108" y1="138" x2="130" y2="138" stroke="var(--accent)" stroke-width="1"/>',
+      '<path d="M148 128 q-6 22 -26 26" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      + '<line x1="122" y1="148" x2="122" y2="154" stroke="var(--ink-soft)" stroke-width="2"/>'
+      + '<rect x="104" y="154" width="34" height="20" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
+      + '<line x1="108" y1="162" x2="134" y2="162" stroke="var(--accent)" stroke-width="1.2"/>'
+      + '<line x1="108" y1="169" x2="134" y2="169" stroke="var(--accent)" stroke-width="1.2"/>',
     centralline:
-      '<circle cx="104" cy="58" r="4.5" fill="var(--accent)"/>'
-      + '<rect x="99" y="54" width="10" height="4" rx="1.5" fill="var(--accent)" opacity="0.7"/>'
-      + '<path d="M265 42 Q200 50 108 58" fill="none" stroke="var(--ink-soft)" stroke-width="1.6"/>'
-      + '<ellipse cx="266" cy="140" rx="13" ry="4" fill="var(--line)"/>'
-      + '<line x1="266" y1="18" x2="266" y2="140" stroke="var(--ink-soft)" stroke-width="2.2"/>'
-      + '<path d="M260 18 q6 -8 12 0" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>'
-      + '<rect x="250" y="4" width="22" height="26" rx="5" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/>'
-      + '<rect x="261" y="32" width="8" height="10" rx="2" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.3"/>',
+      '<circle cx="102" cy="84" r="5" fill="var(--accent)"/>'
+      + '<path d="M104 82 Q190 50 260 40" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>'
+      + '<ellipse cx="266" cy="152" rx="15" ry="5" fill="var(--ink-soft)"/>'
+      + '<line x1="266" y1="18" x2="266" y2="150" stroke="var(--ink-soft)" stroke-width="3"/>'
+      + '<rect x="250" y="2" width="26" height="30" rx="7" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
+      + '<rect x="262" y="34" width="9" height="11" rx="3" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.6"/>',
     shield:
-      '<path d="M228 8 l16 6 v14 q0 14 -16 20 q-16 -6 -16 -20 v-14 z" fill="var(--surface)" stroke="var(--bad)" stroke-width="2"/>'
-      + '<path d="M220 14 l8 24" stroke="var(--bad)" stroke-width="2" stroke-linecap="round"/>',
+      '<path d="M228 6 l18 7 v16 q0 16 -18 22 q-18 -6 -18 -22 v-16 z" fill="var(--surface)" stroke="var(--bad)" stroke-width="2.5"/>'
+      + '<path d="M219 13 l9 26" stroke="var(--bad)" stroke-width="2.5" stroke-linecap="round"/>',
     pill:
-      '<rect x="196" y="10" width="24" height="8" rx="2" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.5"/>'
-      + '<rect x="200" y="16" width="16" height="24" rx="3" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5"/>'
-      + '<line x1="200" y1="24" x2="216" y2="24" stroke="var(--accent)" stroke-width="1.5"/>'
-      + '<ellipse cx="232" cy="30" rx="5" ry="3" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.2" transform="rotate(20 232 30)"/>'
-      + '<ellipse cx="240" cy="22" rx="5" ry="3" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.2" transform="rotate(-15 240 22)"/>',
+      '<rect x="194" y="8" width="26" height="9" rx="3" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>'
+      + '<rect x="198" y="15" width="18" height="27" rx="4" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
+      + '<line x1="198" y1="24" x2="216" y2="24" stroke="var(--accent)" stroke-width="1.8"/>'
+      + '<ellipse cx="234" cy="26" rx="6" ry="3.6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5" transform="rotate(20 234 26)"/>'
+      + '<ellipse cx="243" cy="17" rx="6" ry="3.6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5" transform="rotate(-15 243 17)"/>',
     legHighlight:
-      '<ellipse cx="228" cy="84" rx="20" ry="17" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="4 4"/>'
-      + '<ellipse cx="228" cy="84" rx="14" ry="11" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.8" opacity="0.9"/>'
-      + '<path d="M228 63 v-8 M246 76 l6 -5 M246 92 l6 5" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" fill="none"/>',
+      '<ellipse cx="238" cy="120" rx="24" ry="20" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="5 5"/>'
+      + '<ellipse cx="238" cy="120" rx="17" ry="13" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2" opacity="0.9"/>'
+      + '<path d="M238 96 v-9 M260 108 l7 -6 M260 132 l7 6" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
     kneeHighlight:
-      '<ellipse cx="185" cy="78" rx="21" ry="18" fill="none" stroke="var(--bad)" stroke-width="2.2" stroke-dasharray="4 4"/>'
-      + '<ellipse cx="185" cy="78" rx="15" ry="13" fill="var(--bad-tint)" stroke="var(--bad)" stroke-width="2" opacity="0.85"/>'
-      + '<path d="M185 60 v-7 M203 68 l6 -5 M203 88 l6 5" stroke="var(--bad)" stroke-width="2" stroke-linecap="round" fill="none"/>',
+      '<ellipse cx="190" cy="100" rx="24" ry="20" fill="none" stroke="var(--bad)" stroke-width="2.6" stroke-dasharray="5 5"/>'
+      + '<ellipse cx="190" cy="100" rx="17" ry="14" fill="var(--bad-tint)" stroke="var(--bad)" stroke-width="2.2" opacity="0.85"/>'
+      + '<path d="M190 78 v-9 M212 88 l7 -6 M212 112 l7 6" stroke="var(--bad)" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
     dressing:
-      '<rect x="139" y="65" width="34" height="24" rx="5" fill="none" stroke="var(--bad)" stroke-width="1.3" opacity="0.5"/>'
-      + '<rect x="142" y="68" width="28" height="18" rx="3" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.6"/>'
-      + '<line x1="147" y1="68" x2="147" y2="86" stroke="var(--accent)" stroke-width="1.1"/>'
-      + '<line x1="165" y1="68" x2="165" y2="86" stroke="var(--accent)" stroke-width="1.1"/>'
-      + '<line x1="142" y1="77" x2="170" y2="77" stroke="var(--accent)" stroke-width="1.1" opacity="0.6"/>'
-      + '<path d="M170 86 q16 8 22 22" fill="none" stroke="var(--ink-soft)" stroke-width="1.8"/>'
-      + '<ellipse cx="196" cy="120" rx="9" ry="8" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.6"/>',
+      '<rect x="140" y="80" width="38" height="27" rx="6" fill="none" stroke="var(--bad)" stroke-width="1.6" opacity="0.5"/>'
+      + '<rect x="144" y="84" width="30" height="19" rx="4" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>'
+      + '<line x1="150" y1="84" x2="150" y2="103" stroke="var(--accent)" stroke-width="1.3"/>'
+      + '<line x1="168" y1="84" x2="168" y2="103" stroke="var(--accent)" stroke-width="1.3"/>'
+      + '<line x1="144" y1="93" x2="174" y2="93" stroke="var(--accent)" stroke-width="1.3" opacity="0.6"/>'
+      + '<path d="M174 103 q18 8 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="2.2"/>'
+      + '<ellipse cx="200" cy="140" rx="10" ry="9" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>',
     isolation:
-      '<line x1="130" y1="112" x2="130" y2="118" stroke="var(--ink-soft)" stroke-width="1.5"/>'
-      + '<path d="M120 118 q10 -8 20 0 l4 8 l-6 4 v18 h-16 v-18 l-6 -4 z" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="1.6"/>'
+      '<line x1="130" y1="134" x2="130" y2="140" stroke="var(--ink-soft)" stroke-width="2"/>'
+      + '<path d="M118 140 q12 -10 24 0 l5 9 l-7 5 v20 h-20 v-20 l-7 -5 z" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="2"/>'
   };
   ILLO_ACCESSORIES.centralline_fn = ILLO_ACCESSORIES.centralline + ILLO_ACCESSORIES.shield;
 
   function illustrationSVG(kind){
     var base = ''
       // grounding shadow
-      + '<ellipse cx="150" cy="138" rx="150" ry="5" fill="var(--ink)" opacity="0.05"/>'
-      // bed frame: headboard, footboard, mattress, wheels
-      + '<rect x="6" y="12" width="16" height="110" rx="6" fill="var(--line)"/>'
-      + '<rect x="276" y="48" width="16" height="62" rx="6" fill="var(--line)"/>'
-      + '<rect x="20" y="34" width="250" height="74" rx="18" fill="var(--surface-2)" stroke="var(--line)" stroke-width="2"/>'
-      + '<circle cx="40" cy="132" r="6" fill="var(--line)"/>'
-      + '<circle cx="250" cy="132" r="6" fill="var(--line)"/>'
-      // bedside monitor, always present for hospital atmosphere
-      + '<rect x="2" y="16" width="22" height="17" rx="3" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>'
-      + '<path d="M5 26 l3 -6 l3 8 l3 -9 l3 5 l5 0" fill="none" stroke="var(--good)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>'
-      // pillow (with soft shading)
-      + '<ellipse cx="68" cy="60" rx="32" ry="20" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>'
-      + '<ellipse cx="68" cy="68" rx="26" ry="10" fill="var(--surface-2)" opacity="0.6"/>'
-      // body under blanket (organic silhouette: shoulders, torso, tapering legs)
-      + '<path d="M88 50 C108 40 148 38 182 40 C214 42 238 48 246 62 C250 72 248 84 234 90 C200 102 132 102 100 94 C85 90 78 80 78 68 C78 60 82 54 88 50 Z" fill="var(--primary-tint)" stroke="var(--primary)" stroke-width="2"/>'
-      // feet, peeking out at foot end of the blanket
-      + '<ellipse cx="228" cy="64" rx="11" ry="9" fill="var(--primary-tint)" stroke="var(--primary)" stroke-width="1.5"/>'
-      + '<ellipse cx="228" cy="84" rx="11" ry="9" fill="var(--primary-tint)" stroke="var(--primary)" stroke-width="1.5"/>'
-      // blanket fold lines
-      + '<path d="M92 66 q50 18 130 6" fill="none" stroke="var(--primary)" stroke-width="1.4" opacity="0.45"/>'
-      + '<path d="M104 82 q60 12 118 2" fill="none" stroke="var(--primary)" stroke-width="1.1" opacity="0.3"/>'
-      // head with simple face
-      + '<ellipse cx="62" cy="52" rx="15" ry="16" fill="var(--primary-tint)" stroke="var(--ink-soft)" stroke-width="2"/>'
-      + '<path d="M48 50 Q50 34 62 34 Q74 34 76 50 Q68 42 62 42 Q56 42 48 50 Z" fill="var(--ink-soft)" opacity="0.85"/>'
-      + '<ellipse cx="76" cy="54" rx="3" ry="4" fill="var(--primary-tint)" stroke="var(--ink-soft)" stroke-width="1.2"/>'
-      + '<path d="M56 54 q4 3 8 0" fill="none" stroke="var(--ink-soft)" stroke-width="1.4" stroke-linecap="round"/>'
-      + '<path d="M66 56 q2 2 0 4" fill="none" stroke="var(--ink-soft)" stroke-width="1.1" stroke-linecap="round"/>'
-      + '<path d="M58 64 q4 2 7 0" fill="none" stroke="var(--ink-soft)" stroke-width="1.3" stroke-linecap="round"/>'
-      // arm bent, resting on top of the blanket
-      + '<path d="M96 56 Q116 64 118 80 Q119 90 128 96" fill="none" stroke="var(--ink-soft)" stroke-width="6" stroke-linecap="round"/>'
-      + '<ellipse cx="131" cy="98" rx="8" ry="6" fill="var(--primary-tint)" stroke="var(--ink-soft)" stroke-width="1.8" transform="rotate(15 131 98)"/>';
+      + '<ellipse cx="150" cy="164" rx="130" ry="8" fill="var(--ink)" opacity="0.06"/>'
+      // bed: bold flat blocks instead of thin outlines
+      + '<rect x="6" y="36" width="28" height="118" rx="12" fill="var(--primary)"/>'
+      + '<rect x="266" y="66" width="28" height="86" rx="12" fill="var(--primary)" opacity="0.85"/>'
+      + '<rect x="20" y="66" width="260" height="86" rx="24" fill="var(--surface-2)"/>'
+      + '<circle cx="46" cy="158" r="7" fill="var(--ink-soft)"/>'
+      + '<circle cx="254" cy="158" r="7" fill="var(--ink-soft)"/>'
+      // bedside monitor: dark screen + bright waveform, always present
+      + '<rect x="0" y="10" width="30" height="22" rx="6" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>'
+      + '<rect x="4" y="14" width="22" height="14" rx="3" fill="var(--ink)" opacity="0.85"/>'
+      + '<path d="M6 21 l4 -7 l4 9 l4 -10 l4 6 l6 0" fill="none" stroke="var(--good)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>'
+      // pillow, two soft tones for volume
+      + '<rect x="38" y="70" width="94" height="54" rx="27" fill="var(--surface)"/>'
+      + '<rect x="46" y="104" width="78" height="18" rx="9" fill="var(--surface-2)"/>'
+      // blanket: bold solid shape + a darker shadow sliver underneath for depth
+      + '<path d="M96 122 C138 136 196 136 232 128 C252 123 262 114 264 104 C263 118 246 130 214 135 C168 143 122 140 100 130 Z" fill="var(--primary-strong)"/>'
+      + '<path d="M92 82 C118 64 176 61 216 66 C248 70 264 82 266 98 C268 114 258 128 232 133 C186 143 128 141 104 130 C87 122 80 106 84 94 C86 88 88 85 92 82 Z" fill="var(--primary)"/>'
+      + '<path d="M100 92 q56 14 150 6" fill="none" stroke="var(--primary-tint)" stroke-width="3" opacity="0.55"/>'
+      + '<path d="M108 108 q66 12 140 2" fill="none" stroke="var(--primary-tint)" stroke-width="2.4" opacity="0.4"/>'
+      // feet, peeking out at the foot end of the blanket
+      + '<ellipse cx="238" cy="96" rx="14" ry="12" fill="var(--primary)" stroke="var(--primary-strong)" stroke-width="1.5"/>'
+      + '<ellipse cx="238" cy="120" rx="14" ry="12" fill="var(--primary)" stroke="var(--primary-strong)" stroke-width="1.5"/>'
+      // head: bold hair block, soft face marks, cheek blush
+      + '<ellipse cx="70" cy="78" rx="27" ry="28" fill="var(--primary-tint)"/>'
+      + '<path d="M42 78 Q44 46 70 44 Q96 46 98 78 Q84 60 70 60 Q56 60 42 78 Z" fill="var(--ink)"/>'
+      + '<ellipse cx="96" cy="82" rx="5" ry="7" fill="var(--primary-tint)"/>'
+      + '<circle cx="56" cy="88" r="5" fill="var(--accent)" opacity="0.25"/>'
+      + '<path d="M60 80 q6 5 12 0" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>'
+      + '<path d="M62 93 q6 4 11 0" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/>'
+      // arm, bent and resting on top of the blanket, as one solid shape
+      + '<path d="M104 86 Q138 90 148 116 Q150 126 143 132 L126 132 Q116 128 114 116 Q110 98 104 86 Z" fill="var(--primary-tint)"/>'
+      + '<ellipse cx="131" cy="134" rx="14" ry="10" fill="var(--primary-tint)"/>';
     var accessory = ILLO_ACCESSORIES[kind] || "";
-    return '<svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">' + base + accessory + '</svg>';
+    return '<svg viewBox="0 0 300 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">' + base + accessory + '</svg>';
   }
 
   var STORE_KEY = "hatsunetsu30_progress_v1";
