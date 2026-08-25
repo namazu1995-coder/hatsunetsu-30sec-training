@@ -194,11 +194,11 @@
   .case-hero .tag{ font-size:12px; font-weight:700; color:var(--primary); letter-spacing:.08em; text-transform:uppercase;}
   .case-hero h1{ font-size:23px; font-weight:900; margin-top:8px; }
   .illustration-wrap{
-    background:var(--surface); border:1px solid var(--line); border-radius:16px;
-    padding:10px; margin-top:16px; box-shadow:var(--shadow);
-    display:flex; align-items:center; justify-content:center;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:16px;
+    margin-top:16px; box-shadow:var(--shadow);
+    overflow:hidden; aspect-ratio:3/2;
   }
-  .illustration-wrap svg{ width:100%; max-width:280px; height:auto; display:block; }
+  .illustration-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
   .vignette{
     background:var(--surface); border:1px solid var(--line); border-radius:16px;
     padding:18px 20px; margin-top:16px; box-shadow:var(--shadow); font-size:14.5px; color:var(--ink);
@@ -342,7 +342,7 @@
   var CASES = [
     {
       id:"pneumonia", num:1, cat:"infectious", tag:"呼吸器",
-      title:"肺炎", hint:"78歳男性・嚥下障害あり・入院5日目の発熱", illo:"mask",
+      title:"肺炎", hint:"78歳男性・嚥下障害あり・入院5日目の発熱",
       vignette:"78歳男性。脳梗塞後遺症で嚥下障害があり入院中。入院5日目の夜、38.5℃の発熱が出現した。湿性咳嗽と労作時の息切れがある。",
       vitals:"BP 110/70　HR 98　RR 24　SpO2 92%(room air)",
       answer:{
@@ -365,7 +365,7 @@
     },
     {
       id:"uti", num:2, cat:"infectious", tag:"尿路",
-      title:"尿路感染症", hint:"82歳女性・尿道カテーテル留置中・入院10日目の発熱", illo:"catheter",
+      title:"尿路感染症", hint:"82歳女性・尿道カテーテル留置中・入院10日目の発熱",
       vignette:"82歳女性。大腿骨骨折術後で尿道カテーテル留置中。入院10日目、38.7℃の発熱と悪寒戦慄が出現。",
       vitals:"BP 100/60　HR 110　RR 20　SpO2 97%　悪寒戦慄あり",
       answer:{
@@ -387,7 +387,7 @@
     },
     {
       id:"ssi", num:3, cat:"infectious", tag:"手術部位／デバイス",
-      title:"SSI（手術部位感染）・デバイス感染", hint:"68歳男性・大腸癌術後7日目・ドレーン留置中の発熱", illo:"dressing",
+      title:"SSI（手術部位感染）・デバイス感染", hint:"68歳男性・大腸癌術後7日目・ドレーン留置中の発熱",
       vignette:"68歳男性。大腸癌術後7日目。38.4℃の発熱があり、創部周囲にやや発赤がある。ドレーンも留置されている。",
       vitals:"BT 38.4℃　BP 116/72　HR 96　創部：軽度発赤　ドレーン留置中",
       answer:{
@@ -409,7 +409,7 @@
     },
     {
       id:"cdi", num:4, cat:"infectious", tag:"腸管",
-      title:"CDI（Clostridioides difficile感染症）", hint:"80歳女性・抗菌薬治療5日目・水様便を伴う発熱", illo:"isolation",
+      title:"CDI（Clostridioides difficile感染症）", hint:"80歳女性・抗菌薬治療5日目・水様便を伴う発熱",
       vignette:"80歳女性。肺炎で抗菌薬治療中。治療5日目、38.0℃の発熱とともに1日5回の水様便が出現した。",
       vitals:"BT 38.0℃　BP 108/68　HR 96　水様便 5回/日　抗菌薬投与5日目",
       answer:{
@@ -431,7 +431,7 @@
     },
     {
       id:"crbsi_fn", num:5, cat:"infectious", tag:"血管内デバイス／血液・腫瘍",
-      title:"CRBSI合併の発熱性好中球減少症", hint:"58歳女性・化学療法後10日目・中心静脈カテーテル留置中の悪寒を伴う発熱", illo:"centralline",
+      title:"CRBSI合併の発熱性好中球減少症", hint:"58歳女性・化学療法後10日目・中心静脈カテーテル留置中の悪寒を伴う発熱",
       vignette:"58歳女性。血液腫瘍性疾患に対する化学療法後10日目。中心静脈カテーテル（CVC）を留置しTPN管理中。悪寒戦慄を伴う39.2℃の発熱が出現した。咳・排尿時痛・下痢など局所症状ははっきりしない。",
       vitals:"BP 100/62　HR 112　RR 20　SpO2 96%",
       answer:{
@@ -455,7 +455,7 @@
     },
     {
       id:"dvt", num:6, cat:"noninfectious", tag:"血栓症",
-      title:"DVT（深部静脈血栓症）", hint:"75歳男性・臥床中・片側下腿腫脹を伴う微熱", illo:"legHighlight",
+      title:"DVT（深部静脈血栓症）", hint:"75歳男性・臥床中・片側下腿腫脹を伴う微熱",
       vignette:"75歳男性。大腿骨頸部骨折術後で臥床が続いている。術後4日目、37.8℃の微熱が持続。片側の下腿にやや腫脹があるが、本人からの訴えは乏しい。",
       vitals:"BT 37.8℃　BP 126/80　HR 92　SpO2 96%　左下腿：軽度腫脹",
       answer:{
@@ -477,7 +477,7 @@
     },
     {
       id:"pseudogout", num:7, cat:"noninfectious", tag:"関節",
-      title:"偽痛風・結晶性関節炎（化膿性関節炎の除外）", hint:"85歳女性・術後3日目・膝関節腫脹を伴う発熱", illo:"kneeHighlight",
+      title:"偽痛風・結晶性関節炎（化膿性関節炎の除外）", hint:"85歳女性・術後3日目・膝関節腫脹を伴う発熱",
       vignette:"85歳女性。認知症があり、大腿骨骨折術後3日目に38.2℃の発熱。膝関節に腫脹と熱感があるが、本人の訴えははっきりしない。",
       vitals:"BT 38.2℃　BP 130/78　HR 90　右膝：腫脹・熱感あり",
       answer:{
@@ -500,7 +500,7 @@
     },
     {
       id:"drugfever", num:8, cat:"noninfectious", tag:"薬剤性",
-      title:"薬剤熱・薬疹", hint:"60歳男性・抗菌薬投与1週間後の再発熱と皮疹", illo:"pill",
+      title:"薬剤熱・薬疹", hint:"60歳男性・抗菌薬投与1週間後の再発熱と皮疹",
       vignette:"60歳男性。肺炎治療のためβラクタム系抗菌薬を投与中。一度解熱していたが、投与開始1週間後に再び38.5℃の発熱が出現し、体幹を中心に軽度の皮疹も出てきた。本人は比較的元気で、新たな感染巣も見当たらない。",
       vitals:"BP 122/76　HR 88（発熱の割に脈拍が上がりにくい）　SpO2 98%　体幹中心に軽度の紅斑・皮疹",
       answer:{
@@ -537,100 +537,6 @@
     {t:"抗菌薬", d:"適応があれば早期に投与する。培養提出を優先しつつ、重症なら投与を遅らせない。"},
     {t:"上級医への早期共有", d:"一人で抱え込まない。判断に迷う・重症感がある時点で早めに相談する。"}
   ];
-
-  var ILLO_ACCESSORIES = {
-    mask:
-      '<path d="M64 88 Q54 94 60 104 Q66 112 76 106 Q84 100 78 90 Q72 84 64 88 Z" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>'
-      + '<path d="M68 88 Q84 70 76 52" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>'
-      + '<path d="M60 98 Q42 94 36 76 Q32 62 20 52" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>',
-    catheter:
-      '<path d="M188 130 q-4 20 -24 24" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>'
-      + '<line x1="164" y1="150" x2="164" y2="156" stroke="var(--ink-soft)" stroke-width="2"/>'
-      + '<rect x="146" y="156" width="34" height="18" rx="6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
-      + '<line x1="150" y1="163" x2="176" y2="163" stroke="var(--accent)" stroke-width="1.2"/>'
-      + '<line x1="150" y1="169" x2="176" y2="169" stroke="var(--accent)" stroke-width="1.2"/>',
-    centralline:
-      '<circle cx="104" cy="110" r="5" fill="var(--accent)"/>'
-      + '<ellipse cx="104" cy="110" rx="10" ry="8" fill="none" stroke="var(--accent)" stroke-width="1.8"/>'
-      + '<path d="M109 106 Q190 60 260 42" fill="none" stroke="var(--ink-soft)" stroke-width="2.5"/>'
-      + '<ellipse cx="266" cy="152" rx="15" ry="5" fill="var(--ink-soft)"/>'
-      + '<line x1="266" y1="18" x2="266" y2="150" stroke="var(--ink-soft)" stroke-width="3"/>'
-      + '<rect x="250" y="2" width="26" height="30" rx="7" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
-      + '<rect x="262" y="34" width="9" height="11" rx="3" fill="var(--surface)" stroke="var(--accent)" stroke-width="1.6"/>',
-    pill:
-      '<rect x="194" y="8" width="26" height="9" rx="3" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>'
-      + '<rect x="198" y="15" width="18" height="27" rx="4" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>'
-      + '<line x1="198" y1="24" x2="216" y2="24" stroke="var(--accent)" stroke-width="1.8"/>'
-      + '<ellipse cx="234" cy="26" rx="6" ry="3.6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5" transform="rotate(20 234 26)"/>'
-      + '<ellipse cx="243" cy="17" rx="6" ry="3.6" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="1.5" transform="rotate(-15 243 17)"/>'
-      + '<circle cx="52" cy="64" r="2.1" fill="var(--bad)"/><circle cx="82" cy="62" r="1.9" fill="var(--bad)"/>'
-      + '<circle cx="48" cy="82" r="1.9" fill="var(--bad)"/><circle cx="86" cy="88" r="2.1" fill="var(--bad)"/>'
-      + '<circle cx="64" cy="58" r="1.7" fill="var(--bad)"/>'
-      + '<circle cx="92" cy="104" r="2" fill="var(--bad)"/><circle cx="112" cy="118" r="1.9" fill="var(--bad)"/><circle cx="100" cy="126" r="2" fill="var(--bad)"/>'
-      + '<circle cx="145" cy="112" r="1.9" fill="var(--bad)"/><circle cx="160" cy="126" r="2.1" fill="var(--bad)"/>'
-      + '<circle cx="150" cy="140" r="1.9" fill="var(--bad)"/><circle cx="158" cy="150" r="1.7" fill="var(--bad)"/>',
-    legHighlight:
-      '<ellipse cx="240" cy="116" rx="24" ry="20" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="5 5"/>'
-      + '<ellipse cx="240" cy="116" rx="17" ry="13" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2" opacity="0.9"/>'
-      + '<path d="M240 92 v-9 M262 104 l7 -6 M262 128 l7 6" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
-    kneeHighlight:
-      '<ellipse cx="208" cy="112" rx="24" ry="20" fill="none" stroke="var(--bad)" stroke-width="2.6" stroke-dasharray="5 5"/>'
-      + '<ellipse cx="208" cy="112" rx="17" ry="14" fill="var(--bad-tint)" stroke="var(--bad)" stroke-width="2.2" opacity="0.85"/>'
-      + '<path d="M208 90 v-9 M230 100 l7 -6 M230 124 l7 6" stroke="var(--bad)" stroke-width="2.4" stroke-linecap="round" fill="none"/>',
-    dressing:
-      '<rect x="156" y="96" width="38" height="27" rx="6" fill="none" stroke="var(--bad)" stroke-width="1.6" opacity="0.5"/>'
-      + '<rect x="160" y="100" width="30" height="19" rx="4" fill="var(--surface)" stroke="var(--accent)" stroke-width="2"/>'
-      + '<line x1="166" y1="100" x2="166" y2="119" stroke="var(--accent)" stroke-width="1.3"/>'
-      + '<line x1="184" y1="100" x2="184" y2="119" stroke="var(--accent)" stroke-width="1.3"/>'
-      + '<line x1="160" y1="109" x2="190" y2="109" stroke="var(--accent)" stroke-width="1.3" opacity="0.6"/>'
-      + '<path d="M190 119 q18 8 24 24" fill="none" stroke="var(--ink-soft)" stroke-width="2.2"/>'
-      + '<ellipse cx="214" cy="152" rx="10" ry="9" fill="var(--accent-tint)" stroke="var(--accent)" stroke-width="2"/>',
-    isolation:
-      '<line x1="130" y1="134" x2="130" y2="140" stroke="var(--ink-soft)" stroke-width="2"/>'
-      + '<path d="M118 140 q12 -10 24 0 l5 9 l-7 5 v20 h-20 v-20 l-7 -5 z" fill="var(--warn-tint)" stroke="var(--warn)" stroke-width="2"/>'
-  };
-
-  function illustrationSVG(kind){
-    var base = ''
-      // grounding shadow
-      + '<ellipse cx="150" cy="164" rx="130" ry="8" fill="var(--ink)" opacity="0.06"/>'
-      // bed: bold flat blocks instead of thin outlines
-      + '<rect x="6" y="36" width="28" height="118" rx="12" fill="var(--primary)"/>'
-      + '<rect x="266" y="66" width="28" height="86" rx="12" fill="var(--primary)" opacity="0.85"/>'
-      + '<rect x="20" y="66" width="260" height="86" rx="24" fill="var(--surface-2)"/>'
-      + '<circle cx="46" cy="158" r="7" fill="var(--ink-soft)"/>'
-      + '<circle cx="254" cy="158" r="7" fill="var(--ink-soft)"/>'
-      // bedside monitor: dark screen + bright waveform, always present
-      + '<rect x="0" y="10" width="30" height="22" rx="6" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>'
-      + '<rect x="4" y="14" width="22" height="14" rx="3" fill="var(--ink)" opacity="0.85"/>'
-      + '<path d="M6 21 l4 -7 l4 9 l4 -10 l4 6 l6 0" fill="none" stroke="var(--good)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>'
-      // pillow, two soft tones for volume
-      + '<rect x="38" y="70" width="94" height="54" rx="27" fill="var(--surface)"/>'
-      + '<rect x="46" y="104" width="78" height="18" rx="9" fill="var(--surface-2)"/>'
-      // neck/collar: bare skin visible between the head and the blanket line —
-      // this is where a central line is actually placed, kept clearly apart from the arm
-      + '<path d="M84 96 Q106 108 128 100 L126 122 Q102 130 82 120 Z" fill="var(--primary-tint)"/>'
-      // blanket: bold solid shape (starts right of the collar) + a shadow sliver for depth
-      + '<path d="M122 128 C150 140 200 140 236 132 C254 128 264 120 266 110 C265 122 250 132 220 137 C176 145 132 142 112 132 Z" fill="var(--primary-strong)"/>'
-      + '<path d="M122 88 C146 70 184 66 216 70 C246 74 262 84 266 98 C270 108 264 120 240 126 C198 136 148 134 128 124 C114 118 110 106 114 96 C116 92 118 90 122 88 Z" fill="var(--primary)"/>'
-      + '<path d="M128 98 q56 14 148 6" fill="none" stroke="var(--primary-tint)" stroke-width="3" opacity="0.55"/>'
-      + '<path d="M136 112 q64 12 136 2" fill="none" stroke="var(--primary-tint)" stroke-width="2.4" opacity="0.4"/>'
-      // feet, peeking out at the foot end of the blanket
-      + '<ellipse cx="240" cy="92" rx="14" ry="12" fill="var(--primary)" stroke="var(--primary-strong)" stroke-width="1.5"/>'
-      + '<ellipse cx="240" cy="116" rx="14" ry="12" fill="var(--primary)" stroke="var(--primary-strong)" stroke-width="1.5"/>'
-      // head: bold hair block, soft face marks, cheek blush
-      + '<ellipse cx="70" cy="78" rx="27" ry="28" fill="var(--primary-tint)"/>'
-      + '<path d="M42 78 Q44 46 70 44 Q96 46 98 78 Q84 60 70 60 Q56 60 42 78 Z" fill="var(--ink)"/>'
-      + '<ellipse cx="96" cy="82" rx="5" ry="7" fill="var(--primary-tint)"/>'
-      + '<circle cx="56" cy="88" r="5" fill="var(--accent)" opacity="0.25"/>'
-      + '<path d="M60 80 q6 5 12 0" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>'
-      + '<path d="M62 93 q6 4 11 0" fill="none" stroke="var(--ink)" stroke-width="2.2" stroke-linecap="round"/>'
-      // arm: emerges from the shoulder well clear of the neck/collar, rests on the blanket
-      + '<path d="M134 98 Q162 104 170 130 Q172 140 164 146 L146 146 Q136 142 134 130 Q130 112 134 98 Z" fill="var(--primary-tint)"/>'
-      + '<ellipse cx="156" cy="148" rx="14" ry="10" fill="var(--primary-tint)"/>';
-    var accessory = ILLO_ACCESSORIES[kind] || "";
-    return '<svg viewBox="0 0 300 176" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">' + base + accessory + '</svg>';
-  }
 
   var STORE_KEY = "hatsunetsu30_progress_v1";
 
@@ -751,7 +657,7 @@
   function renderCase(c){
     var html = "";
     html += '<div class="case-hero"><div class="tag">症例 '+(c.num<10?"0":"")+c.num+'</div><h1>'+c.hint+'</h1></div>';
-    html += '<div class="illustration-wrap">'+illustrationSVG(c.illo)+'</div>';
+    html += '<div class="illustration-wrap"><img src="images/'+c.id+'.jpg" alt="" loading="lazy"></div>';
     html += '<div class="vignette">'+c.vignette+'<div class="vitals-line"><b>vitals　</b>'+c.vitals+'</div></div>';
 
     var revealed = !!revealCache[c.id];
