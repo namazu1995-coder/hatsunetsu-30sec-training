@@ -323,6 +323,17 @@
   .keitai-hero h1{ font-size:22px; font-weight:900; margin-top:8px; }
   .keitai-hero p{ font-size:13.5px; color:var(--ink-soft); margin-top:8px; }
 
+  .escalation-note{
+    margin-top:18px; padding:16px 18px; border-radius:14px;
+    background:var(--accent-tint); border:1.5px solid var(--accent);
+  }
+  .escalation-note .en-label{
+    font-size:12px; font-weight:700; letter-spacing:.06em; color:var(--accent); text-transform:uppercase;
+  }
+  .escalation-note .en-body{
+    font-size:13.5px; color:var(--ink); margin-top:6px; line-height:1.6;
+  }
+
   .flow{ margin-top:22px; position:relative; }
   .flow-step{
     display:flex; gap:14px; position:relative; padding-bottom:22px;
@@ -389,9 +400,8 @@
         ],
         tests:[
           "胸部X線／CT",
-          "<mark>抗菌薬投与前</mark>の喀痰培養",
-          "血液培養2セット、酸素投与を並行して開始",
-          "誤嚥を想定するなら嫌気性菌カバーを検討"
+          "喀痰培養（可能なら抗菌薬投与前に）",
+          "<mark>抗菌薬投与前の血液培養2セット</mark>、酸素投与を並行して開始"
         ]
       }
     },
@@ -451,7 +461,7 @@
           "腹部所見（腹部膨満・圧痛）"
         ],
         danger:[
-          "<mark>検査結果を待つ前に隔離を後回しにして院内伝播</mark>させてしまうこと",
+          "<mark>検査結果が出るまで隔離を待ってしまい、対応が遅れて院内伝播</mark>を招くこと",
           "重症型（中毒性巨大結腸症など）の見逃し"
         ],
         tests:[
@@ -547,7 +557,6 @@
           "<mark>粘膜疹・水疱・皮膚剥離・顔面浮腫・リンパ節腫脹</mark>があればSJS/TEN・DRESS症候群など重症薬疹への進展を疑う（今回のような体幹中心の軽度紅斑は典型的な薬剤熱・薬疹に合う）"
         ],
         tests:[
-          "好酸球数のチェック",
           "まず他の感染巣・膿瘍がないかを除外する",
           "被疑薬を中止したうえでの<mark>解熱経過（fever curve）と皮疹の推移の観察</mark>"
         ]
@@ -565,9 +574,8 @@
     {t:"バイタルサイン", d:"まず測る。気道・呼吸・循環（ABC）とSpO2・意識レベルを確認する。"},
     {t:"重症度", d:"ショック徴候・qSOFAなどでwarning signsの有無を評価する。"},
     {t:"原因検索", d:"病歴・身体診察・体内の全デバイスを実際に見て触り、フォーカスを探す。"},
-    {t:"必要検査", d:"血液培養2セットを基本に、疑うフォーカスに応じた培養・画像検査を追加する。"},
-    {t:"抗菌薬", d:"適応があれば早期に投与する。培養提出を優先しつつ、重症なら投与を遅らせない。"},
-    {t:"上級医への早期共有", d:"一人で抱え込まない。判断に迷う・重症感がある時点で早めに相談する。"}
+    {t:"必要検査", d:"フォーカスに応じた培養・画像検査を行い、菌血症を疑うなら血液培養2セットを追加する。"},
+    {t:"抗菌薬", d:"適応があれば早期に投与する。培養提出を優先しつつ、重症なら投与を遅らせない。"}
   ];
 
   var STORE_KEY = "hatsunetsu30_progress_v1";
@@ -703,7 +711,7 @@
     }
     html += '</div>';
 
-    html += '<button class="keitai-cta" data-action="goto-keitai"><span><span class="t">院内発熱の「型」を見る</span><span class="s">バイタル→重症度→原因検索→検査→抗菌薬→上級医への共有</span></span><span class="arrow">›</span></button>';
+    html += '<button class="keitai-cta" data-action="goto-keitai"><span><span class="t">院内発熱の「型」を見る</span><span class="s">バイタル→重症度→原因検索→検査→抗菌薬(上級医への相談はいつでも)</span></span><span class="arrow">›</span></button>';
 
     if(state.reviewOnly){
       html += '<div class="section-head"><span class="dot" style="background:var(--warn)"></span><h2>復習対象の症例</h2><span class="count">'+rev.length+'件</span></div>';
@@ -814,7 +822,8 @@
   /* ---------------- RENDER: KEITAI ---------------- */
   function renderKeitai(){
     var html = "";
-    html += '<div class="keitai-hero"><div class="eyebrow">院内発熱の型</div><h1>どの症例でも、まずこの順番で考える</h1><p>原因が何であれ、院内発熱の初動はこの6ステップが基本の型になります。症例ごとの知識より先に、この流れを体に染み込ませましょう。</p></div>';
+    html += '<div class="keitai-hero"><div class="eyebrow">院内発熱の型</div><h1>どの症例でも、まずこの順番で考える</h1><p>原因が何であれ、院内発熱の初動はこの5ステップが基本の型になります。症例ごとの知識より先に、この流れを体に染み込ませましょう。</p></div>';
+    html += '<div class="escalation-note"><div class="en-label">⚡ いつでも・早ければ早いほど</div><div class="en-body">上級医への相談はこの流れの「最後」ではありません。判断に迷う・重症感がある時点で、<mark>抗菌薬を選ぶより先に</mark>共有してください。一人で抱え込まないこと自体が初動の一部です。</div></div>';
     html += '<div class="flow">';
     FLOW.forEach(function(f,i){
       html += '<div class="flow-step">';
@@ -823,7 +832,7 @@
       html += '</div>';
     });
     html += '</div>';
-    html += '<div class="keitai-foot">迷ったら、この6つに立ち返る。</div>';
+    html += '<div class="keitai-foot">迷ったら、この5つに立ち返る。</div>';
     return html;
   }
 
