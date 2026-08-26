@@ -286,6 +286,23 @@
     font-weight:700; box-decoration-break:clone; -webkit-box-decoration-break:clone;
   }
 
+  .refs-block{
+    margin-top:16px; padding-top:14px; border-top:1px dashed var(--line);
+  }
+  .refs-block h4{
+    font-size:12px; font-weight:700; color:var(--ink-faint); letter-spacing:.06em; margin-bottom:8px;
+  }
+  .refs-block ol{
+    margin:0; padding-left:19px; font-size:12.5px; color:var(--ink-soft); line-height:1.6;
+  }
+  .refs-block li{ margin-bottom:7px; }
+  .refs-block li:last-child{ margin-bottom:0; }
+  .refs-block a{
+    color:var(--ink-soft); text-decoration:underline; text-underline-offset:2px;
+    word-break:break-all;
+  }
+  .refs-block a:hover{ color:var(--primary); }
+
   .assess-block{ margin-top:26px; }
   .assess-block .q{ font-size:14px; font-weight:700; margin-bottom:12px; text-align:center; }
   .assess-row{ display:flex; gap:8px; }
@@ -403,7 +420,10 @@
           "喀痰培養（可能なら抗菌薬投与前に）",
           "<mark>低酸素・頻脈など敗血症を疑う所見があり、抗菌薬投与前に血液培養2セット</mark>を提出、酸素投与も並行して開始（肺炎全体での血培陽性率は10〜20%程度で必須ではないが、重症所見がある本症例では推奨される）"
         ]
-      }
+      },
+      refs:[
+        {author:"Kalil AC, et al.（IDSA/ATS）", title:"Management of Adults With Hospital-Acquired and Ventilator-Associated Pneumonia: 2016 Clinical Practice Guidelines", source:"Clinical Infectious Diseases", year:"2016", url:"https://doi.org/10.1093/cid/ciw353"}
+      ]
     },
     {
       id:"uti", num:2, cat:"infectious", tag:"尿路",
@@ -425,7 +445,10 @@
           "発熱を伴う急性腎盂腎炎は<mark>重症所見の有無にかかわらず菌血症を来しやすく、血液培養を積極的に提出</mark>する",
           "腎機能・乳酸値で重症度を評価"
         ]
-      }
+      },
+      refs:[
+        {author:"Hooton TM, et al.（IDSA）", title:"Diagnosis, Prevention, and Treatment of Catheter-Associated Urinary Tract Infection in Adults: 2009 International Clinical Practice Guidelines", source:"Clinical Infectious Diseases", year:"2010", url:"https://doi.org/10.1086/650482"}
+      ]
     },
     {
       id:"ssi", num:3, cat:"infectious", tag:"手術部位／デバイス",
@@ -447,7 +470,10 @@
           "<mark>造影CTで深部膿瘍を検索</mark>",
           "必要に応じ外科的ドレナージ、血液培養も併せて提出"
         ]
-      }
+      },
+      refs:[
+        {author:"Berríos-Torres SI, et al.（CDC）", title:"Centers for Disease Control and Prevention Guideline for the Prevention of Surgical Site Infection, 2017", source:"JAMA Surgery", year:"2017", url:"https://doi.org/10.1001/jamasurg.2017.0904"}
+      ]
     },
     {
       id:"cdi", num:4, cat:"infectious", tag:"腸管",
@@ -469,7 +495,10 @@
           "便中CDトキシン／GDH／PCR（施設の検査手順に従う）",
           "不要な整腸剤・止痢薬は避ける"
         ]
-      }
+      },
+      refs:[
+        {author:"McDonald LC, et al.（IDSA/SHEA）", title:"Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017 Update", source:"Clinical Infectious Diseases", year:"2018", url:"https://doi.org/10.1093/cid/cix1085"}
+      ]
     },
     {
       id:"crbsi_fn", num:5, cat:"infectious", tag:"血管内デバイス／血液・腫瘍",
@@ -493,7 +522,11 @@
           "身体所見を丁寧に確認したうえで、<mark>速やかに広域抗菌薬（PIPC/TAZ、CFPM、MEPMなど）を開始</mark>（来院後1時間以内が目標）",
           "感染が強く疑われ全身状態が不安定なら<mark>カテーテル抜去</mark>を検討"
         ]
-      }
+      },
+      refs:[
+        {author:"Mermel LA, et al.（IDSA）", title:"Clinical Practice Guidelines for the Diagnosis and Management of Intravascular Catheter-Related Infection: 2009 Update", source:"Clinical Infectious Diseases", year:"2009", url:"https://doi.org/10.1086/599376"},
+        {author:"Freifeld AG, et al.（IDSA）", title:"Clinical Practice Guideline for the Use of Antimicrobial Agents in Neutropenic Patients with Cancer: 2010 Update", source:"Clinical Infectious Diseases", year:"2011", url:"https://doi.org/10.1093/cid/cir073"}
+      ]
     },
     {
       id:"dvt", num:6, cat:"noninfectious", tag:"血栓症",
@@ -515,7 +548,10 @@
           "Dダイマー",
           "PEを疑う場合は呼吸数・SpO2を評価し肺動脈造影CTを検討"
         ]
-      }
+      },
+      refs:[
+        {author:"Konstantinides SV, et al.（ESC）", title:"2019 ESC Guidelines for the diagnosis and management of acute pulmonary embolism", source:"European Heart Journal", year:"2020", url:"https://doi.org/10.1093/eurheartj/ehz405"}
+      ]
     },
     {
       id:"pseudogout", num:7, cat:"noninfectious", tag:"関節",
@@ -538,7 +574,11 @@
           "CRPなどの炎症反応",
           "X線で軟骨石灰化（chondrocalcinosis）を確認"
         ]
-      }
+      },
+      refs:[
+        {author:"Margaretten ME, et al.", title:"Does this adult patient have septic arthritis?", source:"JAMA", year:"2007", url:"https://doi.org/10.1001/jama.297.13.1478"},
+        {author:"Zhang W, et al.（EULAR）", title:"European League Against Rheumatism recommendations for calcium pyrophosphate deposition. Part II: management", source:"Annals of the Rheumatic Diseases", year:"2011", url:"https://doi.org/10.1136/ard.2010.139105"}
+      ]
     },
     {
       id:"drugfever", num:8, cat:"noninfectious", tag:"薬剤性",
@@ -560,7 +600,11 @@
           "まず他の感染巣・膿瘍がないかを除外する",
           "被疑薬を中止したうえでの<mark>解熱経過（fever curve）と皮疹の推移の観察</mark>"
         ]
-      }
+      },
+      refs:[
+        {author:"Patel RA, Gallagher JC.", title:"Drug fever", source:"Pharmacotherapy", year:"2010", url:"https://doi.org/10.1592/phco.30.1.57"},
+        {author:"Kardaun SH, et al.", title:"Variability in the clinical pattern of cutaneous side-effects of drugs with systemic symptoms: does a DRESS syndrome really exist?", source:"British Journal of Dermatology", year:"2007", url:"https://doi.org/10.1111/j.1365-2133.2006.07704.x"}
+      ]
     }
   ];
 
@@ -784,6 +828,8 @@
     html += answerCard("danger","見落とすと危険な病態", c.answer.danger);
     html += answerCard("tests","必要な検査・対応", c.answer.tests);
 
+    html += renderRefs(c);
+
     html += '</div>';
 
     html += '<div class="assess-block">';
@@ -813,6 +859,30 @@
     var iconChar = kind==="check" ? "1" : kind==="danger" ? "!" : "2";
     return '<div class="answer-card"><h3><span class="ico '+kind+'">'+iconChar+'</span>'+label+'</h3>'+
       '<ul>'+items.map(function(t){return '<li>'+t+'</li>';}).join("")+'</ul></div>';
+  }
+
+  // Per-case reference list is optional data (c.refs). Cases without reliable/relevant
+  // citations simply omit the field — this renders nothing rather than forcing a section.
+  function renderRefs(c){
+    if(!c.refs || !c.refs.length) return "";
+    var items = c.refs.map(refEntryHtml).join("");
+    return '<div class="refs-block"><h4>参考</h4><ol>'+items+'</ol></div>';
+  }
+
+  function refEntryHtml(r){
+    var citationParts = [];
+    if(r.author) citationParts.push(escapeHtml(r.author));
+    if(r.title) citationParts.push(escapeHtml(r.title));
+    var pub = [];
+    if(r.source) pub.push(escapeHtml(r.source));
+    if(r.year) pub.push(escapeHtml(String(r.year)));
+    if(pub.length) citationParts.push(pub.join(" "));
+    var text = citationParts.join("．");
+    var linkHtml = "";
+    if(r.url){
+      linkHtml = '<br><a href="'+escapeHtml(r.url)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(r.url)+'</a>';
+    }
+    return '<li>'+text+linkHtml+'</li>';
   }
 
   function assessBtn(kind, label, cur){
