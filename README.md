@@ -60,11 +60,13 @@ Claudeでの試作段階で作った版はこちら: [claude.ai/code/artifact/5e
 
 ```
 hatsunetsu-training.html   アプリ本体(HTML/CSS/JS 単一ファイル)
+index.html                 GitHub Pages用のリダイレクト(hatsunetsu-training.htmlへ転送)
+images/                    症例イラスト(症例ごとのJPEG、8枚)
 hatsunetsu_qr.png          アプリへのQRコード
 ```
 
 ## 技術メモ
 
 - ビルド不要の単一HTMLファイル。外部ライブラリなし、フォントのみGoogle Fontsを使用
-- 症例イラストはすべて手描きのインラインSVG(外部画像・CDN不使用)
+- 症例イラストは`images/`フォルダの写真(AI生成、外部CDN不使用・同梱ファイル)。**オフラインで使う場合はリポジトリ全体をクローン/ダウンロードしてください**(HTMLファイル単体だけを保存すると画像が表示されません)
 - 進捗・自己評価履歴はlocalStorageに保存(サーバーなし)

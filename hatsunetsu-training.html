@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';">
 <title>院内発熱30秒トレーニング</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&display=swap">
 <style>
@@ -102,8 +103,8 @@
   }
   .topbar .back{
     appearance:none; border:none; background:transparent; color:var(--primary);
-    font-size:15px; font-weight:700; cursor:pointer; padding:6px 4px 6px 0;
-    display:flex; align-items:center; gap:2px;
+    font-size:15px; font-weight:700; cursor:pointer; padding:6px 8px 6px 0;
+    display:flex; align-items:center; gap:2px; min-height:44px;
     font-family:inherit;
   }
   .topbar .title{
@@ -152,9 +153,10 @@
     display:flex; align-items:center; justify-content:space-between; gap:10px;
     background:var(--primary-tint); border:1px solid var(--primary); border-radius:16px;
     padding:14px 18px; margin:10px 0 24px; cursor:pointer;
+    width:100%; text-align:left; font-family:inherit; appearance:none;
   }
-  .keitai-cta .t{font-size:14px; font-weight:700; color:var(--primary-strong);}
-  .keitai-cta .s{font-size:12px; color:var(--ink-soft); margin-top:2px;}
+  .keitai-cta .t{display:block; font-size:14px; font-weight:700; color:var(--primary-strong);}
+  .keitai-cta .s{display:block; font-size:12px; color:var(--ink-soft); margin-top:2px;}
   .keitai-cta .arrow{color:var(--primary-strong); font-size:18px; flex:none;}
 
   .section-head{
@@ -180,9 +182,12 @@
     color:var(--ink-faint); width:26px; flex:none; font-variant-numeric:tabular-nums;
   }
   .case-body{flex:1; min-width:0; display:flex; flex-direction:column; gap:3px;}
-  .case-body .hint{font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;}
+  .case-body .hint{
+    font-size:14px; font-weight:600; color:var(--ink); line-height:1.4;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  }
   .status-chip{
-    flex:none; font-size:11.5px; font-weight:700; padding:5px 10px; border-radius:999px;
+    flex:none; align-self:flex-start; font-size:11.5px; font-weight:700; padding:5px 10px; border-radius:999px;
     white-space:nowrap;
   }
   .status-chip.none{ background:var(--surface-2); color:var(--ink-faint); }
@@ -202,8 +207,13 @@
     background:var(--surface-2); border:1px solid var(--line); border-radius:16px;
     margin-top:16px; box-shadow:var(--shadow);
     overflow:hidden; aspect-ratio:3/2;
+    display:flex; align-items:center; justify-content:center;
   }
   .illustration-wrap img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .illustration-wrap.img-missing img{ display:none; }
+  .illustration-wrap.img-missing::after{
+    content:"画像を読み込めませんでした"; font-size:12.5px; color:var(--ink-faint); padding:0 20px; text-align:center;
+  }
   .vignette{
     background:var(--surface); border:1px solid var(--line); border-radius:16px;
     padding:18px 20px; margin-top:16px; box-shadow:var(--shadow); font-size:14.5px; color:var(--ink);
@@ -220,7 +230,7 @@
   }
   .prompt-block label .n{ color:var(--primary); margin-right:6px; }
   .prompt-block textarea{
-    width:100%; min-height:64px; resize:vertical; border-radius:12px;
+    width:100%; min-height:96px; resize:vertical; border-radius:12px;
     border:1px solid var(--line); background:var(--surface); color:var(--ink);
     padding:12px 14px; font-family:inherit; font-size:14px; line-height:1.6;
   }
@@ -290,6 +300,10 @@
   .assess-btn.good.active{ background:var(--good); color:#fff; }
   .assess-btn.partial.active{ background:var(--warn); color:#fff; }
   .assess-btn.poor.active{ background:var(--bad); color:#fff; }
+  .save-warning{
+    margin-top:12px; padding:10px 14px; border-radius:10px;
+    background:var(--bad-tint); color:var(--bad); font-size:12.5px; font-weight:600; line-height:1.5;
+  }
 
   .after-assess{
     margin-top:22px; display:flex; flex-direction:column; gap:10px;
@@ -335,6 +349,17 @@
   a{color:var(--primary);}
   button:focus-visible, textarea:focus-visible, .case-card:focus-visible{
     outline:2px solid var(--primary); outline-offset:2px;
+  }
+
+  @media (hover:hover){
+    .case-card:hover{ border-color:var(--primary); }
+    .keitai-cta:hover{ background:var(--primary-tint); filter:brightness(0.97); }
+    .review-pill-btn:hover{ filter:brightness(0.95); }
+    .reveal-btn:hover{ filter:brightness(1.08); }
+    .assess-btn:hover{ border-color:var(--primary); }
+    .nav-btn.primary:hover{ filter:brightness(1.08); }
+    .nav-btn.ghost:hover{ border-color:var(--primary); }
+    .topbar .back:hover{ text-decoration:underline; }
   }
 </style>
 </head>
@@ -546,15 +571,43 @@
   ];
 
   var STORE_KEY = "hatsunetsu30_progress_v1";
+  var DRAFT_KEY = "hatsunetsu30_drafts_v1";
 
   function loadProgress(){
     try{
-      return JSON.parse(localStorage.getItem(STORE_KEY)) || {};
+      var p = JSON.parse(localStorage.getItem(STORE_KEY));
+      return (p && typeof p === "object" && !Array.isArray(p)) ? p : {};
     }catch(e){ return {}; }
   }
   function saveProgress(p){
-    try{ localStorage.setItem(STORE_KEY, JSON.stringify(p)); }catch(e){}
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(p)); return true; }catch(e){ return false; }
   }
+  function loadDrafts(){
+    try{
+      var d = JSON.parse(localStorage.getItem(DRAFT_KEY));
+      return (d && typeof d === "object" && !Array.isArray(d)) ? d : {};
+    }catch(e){ return {}; }
+  }
+  function saveDrafts(d){
+    try{ localStorage.setItem(DRAFT_KEY, JSON.stringify(d)); return true; }catch(e){ return false; }
+  }
+
+  // Soft data-integrity check: warns in the console (never blocks rendering) if a future
+  // edit breaks the id/num invariants that case-card status lookup and case-to-case
+  // navigation both rely on.
+  (function validateCasesData(){
+    var seenIds = {}, seenNums = {}, ok = true;
+    CASES.forEach(function(c, i){
+      if(seenIds[c.id]) ok = false;
+      seenIds[c.id] = true;
+      if(seenNums[c.num]) ok = false;
+      seenNums[c.num] = true;
+      if(c.num !== i+1) ok = false;
+    });
+    if(!ok && typeof console !== "undefined" && console.warn){
+      console.warn("[hatsunetsu] CASES data integrity check failed: ids/nums are not unique and sequential. Case navigation and status tracking may misbehave.");
+    }
+  })();
 
   var state = {
     view:"home",          // home | case | keitai
@@ -563,10 +616,20 @@
     progress: loadProgress()
   };
 
+  var lastSaveFailed = false;
+
   var app = document.getElementById("app");
 
   function escapeHtml(s){
-    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+  }
+
+  var VALID_STATUSES = ["good","partial","poor"];
+  // Whitelists a status value before it is ever concatenated into HTML. state.progress is
+  // loaded from localStorage, which a user (or another script sharing the origin) can edit
+  // directly — never trust its values enough to treat them as safe HTML/attribute text.
+  function safeStatus(s){
+    return VALID_STATUSES.indexOf(s) !== -1 ? s : "none";
   }
 
   function statusLabel(s){
@@ -586,6 +649,11 @@
     for(var i=0;i<CASES.length;i++){ if(state.progress[CASES[i].id]) n++; }
     return n;
   }
+  function masteredCount(){
+    var n=0;
+    for(var i=0;i<CASES.length;i++){ if(state.progress[CASES[i].id]==="good") n++; }
+    return n;
+  }
   function reviewCases(){
     return CASES.filter(function(c){
       var s = state.progress[c.id];
@@ -603,12 +671,22 @@
   /* ---------------- RENDER: HOME ---------------- */
   function renderHome(){
     var done = completedCount();
+    var mastered = masteredCount();
     var total = CASES.length;
-    var pct = Math.round(done/total*100);
+    var pct = Math.round(mastered/total*100);
     var rev = reviewCases();
 
     var circumference = 2*Math.PI*24;
     var offset = circumference * (1 - pct/100);
+
+    var subLine;
+    if(done < total){
+      subLine = (total-done)+"症例が未挑戦";
+    } else if(rev.length){
+      subLine = "復習対象が "+rev.length+" 症例あります";
+    } else {
+      subLine = "全症例クリアです";
+    }
 
     var html = "";
     html += '<div class="hero">';
@@ -619,13 +697,13 @@
 
     html += '<div class="progress-card">';
     html += '  <div class="progress-ring"><svg width="56" height="56"><circle cx="28" cy="28" r="24" stroke="var(--surface-2)" stroke-width="5" fill="none"/><circle cx="28" cy="28" r="24" stroke="var(--primary)" stroke-width="5" fill="none" stroke-linecap="round" stroke-dasharray="'+circumference+'" stroke-dashoffset="'+offset+'"/></svg><div class="pct">'+pct+'%</div></div>';
-    html += '  <div class="progress-text"><div class="num">'+done+' / '+total+' 症例 挑戦済み</div><div class="sub">'+(rev.length ? "復習対象が "+rev.length+" 症例あります" : "未挑戦、または全て自力で言えています")+'</div></div>';
+    html += '  <div class="progress-text"><div class="num">'+mastered+' / '+total+' 症例 自力で言えた</div><div class="sub">'+subLine+'</div></div>';
     if(rev.length){
       html += '  <button class="review-pill-btn" data-action="toggle-review">復習</button>';
     }
     html += '</div>';
 
-    html += '<div class="keitai-cta" data-action="goto-keitai"><div><div class="t">院内発熱の「型」を見る</div><div class="s">バイタル→重症度→原因検索→検査→抗菌薬→上級医への共有</div></div><div class="arrow">›</div></div>';
+    html += '<button class="keitai-cta" data-action="goto-keitai"><span><span class="t">院内発熱の「型」を見る</span><span class="s">バイタル→重症度→原因検索→検査→抗菌薬→上級医への共有</span></span><span class="arrow">›</span></button>';
 
     if(state.reviewOnly){
       html += '<div class="section-head"><span class="dot" style="background:var(--warn)"></span><h2>復習対象の症例</h2><span class="count">'+rev.length+'件</span></div>';
@@ -647,7 +725,7 @@
   }
 
   function caseCardHtml(c){
-    var status = state.progress[c.id] || "none";
+    var status = safeStatus(state.progress[c.id]);
     var numStr = (c.num<10?"0":"")+c.num;
     return '<button class="case-card" data-action="open-case" data-id="'+c.id+'">'+
       '<span class="case-num">'+numStr+'</span>'+
@@ -657,14 +735,14 @@
   }
 
   /* ---------------- RENDER: CASE ---------------- */
-  var revealCache = {}; // caseId -> bool (revealed) — session only, resets per page load intentionally? keep in memory across nav within session
-  var draftCache = {};  // caseId -> {check,danger,tests}
+  var revealCache = {}; // caseId -> bool (revealed) — intentionally session-only (resets each visit)
+  var draftCache = loadDrafts(); // caseId -> {check,danger,tests} — persisted to localStorage, debounced
   var pendingStatus = {}; // caseId -> chosen status this session (before/while confirming)
 
   function renderCase(c){
     var html = "";
     html += '<div class="case-hero"><div class="tag">症例 '+(c.num<10?"0":"")+c.num+'</div><h1>'+c.hint+'</h1></div>';
-    html += '<div class="illustration-wrap"><img src="images/'+c.id+'.jpg" alt="" loading="lazy"></div>';
+    html += '<div class="illustration-wrap"><img src="images/'+c.id+'.jpg" alt="'+escapeHtml(c.hint)+'" loading="lazy" data-illustration></div>';
     html += '<div class="vignette">'+c.vignette+'<div class="vitals-line"><b>vitals　</b>'+c.vitals+'</div></div>';
 
     var revealed = !!revealCache[c.id];
@@ -707,7 +785,11 @@
     html += assessBtn("good","自力で言えた", cur);
     html += assessBtn("partial","一部抜けた", cur);
     html += assessBtn("poor","ほぼ言えなかった", cur);
-    html += '</div></div>';
+    html += '</div>';
+    if(cur && lastSaveFailed){
+      html += '<div class="save-warning">⚠ この端末には保存できませんでした。プライベートブラウズ中か、ストレージが無効になっている可能性があります。この記録はこの画面を離れると失われます。</div>';
+    }
+    html += '</div>';
 
     if(cur){
       html += '<div class="after-assess">';
@@ -756,6 +838,13 @@
       mainHtml = renderHome();
     } else if(state.view==="case"){
       var c = caseById(state.caseId);
+      if(!c){
+        // Unknown/stale case id (should not happen via normal UI navigation, but never
+        // let a bad id crash the whole render — fall back to the home screen instead).
+        state.view = "home";
+        state.caseId = null;
+        return render();
+      }
       var numStr = (c.num<10?"0":"")+c.num;
       topbarHtml = '<button class="back" data-action="goto-home">‹ 一覧</button><div class="title">症例 '+numStr+'</div>';
       mainHtml = renderCase(c);
@@ -769,6 +858,18 @@
   }
 
   /* ---------------- EVENTS ---------------- */
+  // When in review mode, "次の症例へ" should walk the review queue, not the full case list —
+  // otherwise the whole point of filtering down to just the cases that need another pass is
+  // lost the moment you finish the first one. Falls back to the full list if the review
+  // queue is empty (e.g. the case just answered was the last one still needing review).
+  function nextCaseAfter(current){
+    var pool = state.reviewOnly ? reviewCases() : CASES;
+    if(pool.length === 0){ pool = CASES; }
+    var idx = -1;
+    for(var i=0;i<pool.length;i++){ if(pool[i].id===current.id){ idx = i; break; } }
+    return idx === -1 ? pool[0] : pool[(idx+1) % pool.length];
+  }
+
   function bindEvents(){
     app.querySelectorAll("[data-action]").forEach(function(el){
       el.addEventListener("click", function(){
@@ -776,9 +877,12 @@
         if(action==="open-case"){
           revealCache[el.getAttribute("data-id")] = false;
           delete pendingStatus[el.getAttribute("data-id")];
+          lastSaveFailed = false;
           go("case", el.getAttribute("data-id"));
         } else if(action==="goto-home"){
-          state.reviewOnly = false;
+          // Keep whatever reviewOnly state we already had — a user backing out of a case
+          // they opened from the review list should land back in the review list, not be
+          // silently dropped into the full case list.
           go("home");
         } else if(action==="goto-home-full"){
           state.reviewOnly = false;
@@ -789,21 +893,23 @@
         } else if(action==="goto-keitai"){
           go("keitai");
         } else if(action==="reveal"){
-          collectDraft(state.caseId);
+          collectDraft(state.caseId, true);
           revealCache[state.caseId] = true;
           render();
           var wrap = app.querySelector(".answer-wrap");
           if(wrap) wrap.scrollIntoView({behavior:"smooth", block:"start"});
         } else if(action==="assess"){
           var kind = el.getAttribute("data-kind");
+          var c0 = caseById(state.caseId);
+          if(!c0) return;
           pendingStatus[state.caseId] = kind;
           state.progress[state.caseId] = kind;
-          saveProgress(state.progress);
+          lastSaveFailed = !saveProgress(state.progress);
           render();
         } else if(action==="next-case"){
           var c = caseById(state.caseId);
-          var nextIdx = c.num % CASES.length; // num is 1-indexed
-          var next = CASES[nextIdx];
+          if(!c) return;
+          var next = nextCaseAfter(c);
           revealCache[next.id] = false;
           delete pendingStatus[next.id];
           go("case", next.id);
@@ -813,18 +919,38 @@
 
     app.querySelectorAll("textarea[data-field]").forEach(function(ta){
       ta.addEventListener("input", function(){
-        collectDraft(state.caseId);
+        collectDraft(state.caseId, false);
       });
+    });
+
+    app.querySelectorAll("img[data-illustration]").forEach(function(img){
+      img.addEventListener("error", function(){
+        var wrap = img.closest(".illustration-wrap");
+        if(wrap) wrap.classList.add("img-missing");
+      }, {once:true});
     });
   }
 
-  function collectDraft(caseId){
+  var draftSaveTimer = null;
+  function collectDraft(caseId, flushNow){
     var d = {};
     app.querySelectorAll("textarea[data-field]").forEach(function(ta){
       d[ta.getAttribute("data-field")] = ta.value;
     });
     draftCache[caseId] = d;
+    if(draftSaveTimer){ clearTimeout(draftSaveTimer); draftSaveTimer = null; }
+    if(flushNow){
+      saveDrafts(draftCache);
+    } else {
+      draftSaveTimer = setTimeout(function(){ saveDrafts(draftCache); }, 400);
+    }
   }
+  // Best-effort: flush any pending debounced draft save if the tab is closed/backgrounded
+  // before the timer fires (mobile browsers routinely discard backgrounded tabs).
+  window.addEventListener("pagehide", function(){ saveDrafts(draftCache); });
+  document.addEventListener("visibilitychange", function(){
+    if(document.visibilityState === "hidden") saveDrafts(draftCache);
+  });
 
   render();
 })();
