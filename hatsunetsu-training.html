@@ -430,7 +430,7 @@
         tests:[
           "胸部X線／CT",
           "喀痰培養（可能なら抗菌薬投与前に）",
-          "<mark>低酸素・頻脈など敗血症を疑う所見があり、抗菌薬投与前に血液培養2セット</mark>を提出、酸素投与も並行して開始（肺炎全体での血培陽性率は10〜20%程度で必須ではないが、重症所見がある本症例では推奨される）"
+          "<mark>低酸素・頻脈など敗血症を疑う所見があり、抗菌薬投与前に血液培養2セット</mark>を提出、酸素投与も並行して開始（肺炎における血液培養の陽性率は一般に低く全例には推奨されないが、重症所見を伴う本症例のような場合は推奨される）"
         ]
       },
       pearl:[
@@ -439,7 +439,8 @@
         "誤嚥は繰り返しやすいため、解熱後も嚥下評価・体位管理など再発予防を初期対応と並行して考える"
       ],
       refs:[
-        {author:"Kalil AC, et al.（IDSA/ATS）", title:"Management of Adults With Hospital-Acquired and Ventilator-Associated Pneumonia: 2016 Clinical Practice Guidelines", source:"Clinical Infectious Diseases", year:"2016", url:"https://doi.org/10.1093/cid/ciw353"}
+        {author:"Kalil AC, et al.（IDSA/ATS）", title:"Management of Adults With Hospital-Acquired and Ventilator-Associated Pneumonia: 2016 Clinical Practice Guidelines", source:"Clinical Infectious Diseases", year:"2016", url:"https://doi.org/10.1093/cid/ciw353"},
+        {author:"Metlay JP, et al.（ATS/IDSA）", title:"Diagnosis and Treatment of Adults with Community-acquired Pneumonia. An Official Clinical Practice Guideline of the American Thoracic Society and Infectious Diseases Society of America", source:"American Journal of Respiratory and Critical Care Medicine", year:"2019", url:"https://doi.org/10.1164/rccm.201908-1581ST"}
       ]
     },
     {
@@ -459,7 +460,7 @@
         ],
         tests:[
           "尿培養（可能ならカテーテル交換後に採取）",
-          "発熱を伴う急性腎盂腎炎は<mark>重症所見の有無にかかわらず菌血症を来しやすく、血液培養を積極的に提出</mark>する",
+          "<mark>尿道カテーテル留置中の複雑性尿路感染や悪寒戦慄など菌血症を疑う所見を伴う場合は、血液培養を積極的に提出</mark>する（非複雑性の腎盂腎炎では必須とは限らない）",
           "腎機能・乳酸値で重症度を評価"
         ]
       },
@@ -469,7 +470,8 @@
         "可能であれば新しいカテーテルに交換してから採尿すると、バイオフィルムによる偽陽性を避けやすい"
       ],
       refs:[
-        {author:"Hooton TM, et al.（IDSA）", title:"Diagnosis, Prevention, and Treatment of Catheter-Associated Urinary Tract Infection in Adults: 2009 International Clinical Practice Guidelines", source:"Clinical Infectious Diseases", year:"2010", url:"https://doi.org/10.1086/650482"}
+        {author:"Hooton TM, et al.（IDSA）", title:"Diagnosis, Prevention, and Treatment of Catheter-Associated Urinary Tract Infection in Adults: 2009 International Clinical Practice Guidelines", source:"Clinical Infectious Diseases", year:"2010", url:"https://doi.org/10.1086/650482"},
+        {author:"Miller JM, et al.（IDSA/ASM）", title:"A Guide to Utilization of the Microbiology Laboratory for Diagnosis of Infectious Diseases: 2018 Update", source:"Clinical Infectious Diseases", year:"2018", url:"https://doi.org/10.1093/cid/ciy381"}
       ]
     },
     {
@@ -557,7 +559,8 @@
       },
       pearl:[
         "発熱性好中球減少症は、局所所見の乏しさに惑わされず原因検索と並行して速やかに広域抗菌薬を開始することが最優先される数少ない病態の一つ",
-        "起因菌が黄色ブドウ球菌・緑膿菌・カンジダなどであれば重症化しやすくカテーテル抜去が強く推奨される一方、病原性の低い菌（コアグラーゼ陰性ブドウ球菌など）では血行動態が安定していればカテーテル温存を検討できる"
+        "起因菌が黄色ブドウ球菌・緑膿菌・カンジダなどであれば重症化しやすくカテーテル抜去が強く推奨される一方、病原性の低い菌（コアグラーゼ陰性ブドウ球菌など）では血行動態が安定していればカテーテル温存を検討できる",
+        "カテーテルをすぐに抜去できない場合、末梢血とカテーテル血の培養陽性化までの時間差（DTP: differential time to positivity、カテーテル血がおよそ2時間以上早く陽性化）がカテーテル由来感染らしさの参考所見になる"
       ],
       refs:[
         {author:"Mermel LA, et al.（IDSA）", title:"Clinical Practice Guidelines for the Diagnosis and Management of Intravascular Catheter-Related Infection: 2009 Update", source:"Clinical Infectious Diseases", year:"2009", url:"https://doi.org/10.1086/599376"},
@@ -669,7 +672,7 @@
 
   var FLOW = [
     {t:"バイタルサイン", d:"まず測る。気道・呼吸・循環（ABC）とSpO2・意識レベルを確認する。"},
-    {t:"重症度", d:"ショック徴候・qSOFAなどでwarning signsの有無を評価する。"},
+    {t:"重症度", d:"ショック徴候、意識状態、呼吸数など複数の指標を組み合わせて重症感を評価する（qSOFA単独でのスクリーニングは推奨されない）。"},
     {t:"原因検索", d:"病歴聴取と頭の先から足先までの身体診察を行う。留置デバイスは刺入部を実際に見て触り、フォーカスを探す。"},
     {t:"必要検査", d:"フォーカスに応じた培養・画像検査を行い、菌血症を疑うなら血液培養2セットを追加する。"},
     {t:"抗菌薬", d:"適応があれば早期に投与する。培養提出を優先しつつ、重症なら投与を遅らせない。"}
