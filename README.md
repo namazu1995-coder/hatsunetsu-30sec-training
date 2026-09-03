@@ -1,4 +1,4 @@
-# 院内発熱30秒トレーニング
+# 院内発熱トレーニング
 
 [![Built with Claude Code](https://img.shields.io/badge/Built%20with-Claude%20Code-D97757?logo=anthropic&logoColor=white)](https://claude.com/claude-code)
 

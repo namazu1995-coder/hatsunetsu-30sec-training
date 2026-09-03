@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none';">
-<title>院内発熱30秒トレーニング</title>
+<title>院内発熱トレーニング</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&display=swap">
 <style>
   :root{
@@ -799,7 +799,7 @@
     var html = "";
     html += '<div class="hero">';
     html += '  <div class="eyebrow">院内発熱 初動トレーニング</div>';
-    html += '  <h1>院内発熱<br>30秒トレーニング</h1>';
+    html += '  <h1>院内発熱<br>トレーニング</h1>';
     html += '  <p>当直中に出会う院内発熱8症例。答えを見る前に、自分の言葉で「最初に確認すること」「見落とすと危険な病態」「必要な検査・対応」を書き出してみましょう。</p>';
     html += '</div>';
 
@@ -978,7 +978,7 @@
     if(state.view==="home"){
       topbarHtml = state.reviewOnly
         ? '<button class="back" data-action="goto-home-full">‹ 一覧</button><div class="title">復習リスト</div>'
-        : '<div class="title">院内発熱30秒トレーニング</div>';
+        : '<div class="title">院内発熱トレーニング</div>';
       mainHtml = renderHome();
     } else if(state.view==="case"){
       var c = caseById(state.caseId);
