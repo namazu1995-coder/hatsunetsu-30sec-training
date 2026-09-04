@@ -358,9 +358,8 @@
   .cause-list:last-child{ margin-bottom:0; }
   .cause-item{
     display:flex; align-items:center; gap:10px;
-    width:100%; text-align:left; appearance:none; border:none; cursor:pointer;
     background:var(--surface); border:1px solid var(--line); border-radius:12px;
-    padding:11px 14px; font-family:inherit; box-shadow:var(--shadow);
+    padding:11px 14px; box-shadow:var(--shadow);
   }
   .cause-item .ci-tag{
     flex:none; font-size:11px; font-weight:700; padding:4px 9px; border-radius:999px;
@@ -411,7 +410,6 @@
 
   @media (hover:hover){
     .case-card:hover{ border-color:var(--primary); }
-    .cause-item:hover{ border-color:var(--primary); }
     .keitai-cta:hover{ background:var(--primary-tint); filter:brightness(0.97); }
     .review-pill-btn:hover{ filter:brightness(0.95); }
     .reveal-btn:hover{ filter:brightness(1.08); }
@@ -976,11 +974,28 @@
   }
 
   /* ---------------- RENDER: KEITAI ---------------- */
-  // Cause overview: infectious causes are listed first, reflecting that ruling out infection
-  // takes priority in the initial differential before turning to non-infectious causes.
+  // General-knowledge cause list for the "型" page. Deliberately independent of CASES:
+  // this is background/principle content, not a case index, so entries stay at the level
+  // of a textbook category rather than naming a specific case's diagnosis combination
+  // (which would spoil that case's answer).
+  var GENERAL_CAUSES = {
+    infectious:[
+      {tag:"呼吸器", label:"肺炎（誤嚥性を含む）"},
+      {tag:"尿路", label:"尿路感染症"},
+      {tag:"手術部位／デバイス", label:"手術部位感染・デバイス感染"},
+      {tag:"血管内デバイス", label:"カテーテル関連血流感染"},
+      {tag:"腸管", label:"Clostridioides difficile感染症"}
+    ],
+    noninfectious:[
+      {tag:"血栓症", label:"深部静脈血栓症"},
+      {tag:"関節", label:"結晶性関節炎（偽痛風など）"},
+      {tag:"薬剤性", label:"薬剤熱・薬疹"}
+    ]
+  };
+
   function renderCauseOverview(){
-    var infectious = CASES.filter(function(c){ return c.cat==="infectious"; });
-    var noninfectious = CASES.filter(function(c){ return c.cat==="noninfectious"; });
+    var infectious = GENERAL_CAUSES.infectious;
+    var noninfectious = GENERAL_CAUSES.noninfectious;
     var html = '<div class="cause-overview">';
     html += '<div class="intro">院内発熱の原因は、まず<mark>感染性</mark>を意識して除外し、否定的なら<mark>非感染性</mark>を検討するのが基本の優先順位です。代表的な原因を挙げます。</div>';
     html += '<div class="section-head infectious"><span class="dot"></span><h2>感染性の原因</h2><span class="count">代表'+infectious.length+'例</span></div>';
@@ -992,10 +1007,10 @@
   }
 
   function causeItemHtml(c){
-    return '<button class="cause-item" data-action="open-case" data-id="'+c.id+'">'+
+    return '<div class="cause-item">'+
       '<span class="ci-tag">'+escapeHtml(c.tag)+'</span>'+
-      '<span class="ci-title">'+escapeHtml(c.title)+'</span>'+
-    '</button>';
+      '<span class="ci-title">'+escapeHtml(c.label)+'</span>'+
+    '</div>';
   }
 
   function renderKeitai(){
