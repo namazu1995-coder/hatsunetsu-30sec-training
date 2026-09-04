@@ -352,6 +352,24 @@
   .keitai-hero h1{ font-size:22px; font-weight:900; margin-top:8px; }
   .keitai-hero p{ font-size:13.5px; color:var(--ink-soft); margin-top:8px; }
 
+  .cause-overview{ margin-top:22px; }
+  .cause-overview .intro{ font-size:13.5px; color:var(--ink-soft); margin-bottom:14px; }
+  .cause-list{ display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+  .cause-list:last-child{ margin-bottom:0; }
+  .cause-item{
+    display:flex; align-items:center; gap:10px;
+    width:100%; text-align:left; appearance:none; border:none; cursor:pointer;
+    background:var(--surface); border:1px solid var(--line); border-radius:12px;
+    padding:11px 14px; font-family:inherit; box-shadow:var(--shadow);
+  }
+  .cause-item .ci-tag{
+    flex:none; font-size:11px; font-weight:700; padding:4px 9px; border-radius:999px;
+    white-space:nowrap;
+  }
+  .cause-list.infectious .ci-tag{ background:var(--bad-tint); color:var(--bad); }
+  .cause-list.noninfectious .ci-tag{ background:var(--primary-tint); color:var(--primary-strong); }
+  .cause-item .ci-title{ font-size:13.5px; font-weight:600; color:var(--ink); }
+
   .escalation-note{
     margin-top:18px; padding:16px 18px; border-radius:14px;
     background:var(--accent-tint); border:1.5px solid var(--accent);
@@ -393,6 +411,7 @@
 
   @media (hover:hover){
     .case-card:hover{ border-color:var(--primary); }
+    .cause-item:hover{ border-color:var(--primary); }
     .keitai-cta:hover{ background:var(--primary-tint); filter:brightness(0.97); }
     .review-pill-btn:hover{ filter:brightness(0.95); }
     .reveal-btn:hover{ filter:brightness(1.08); }
@@ -957,9 +976,32 @@
   }
 
   /* ---------------- RENDER: KEITAI ---------------- */
+  // Cause overview: infectious causes are listed first, reflecting that ruling out infection
+  // takes priority in the initial differential before turning to non-infectious causes.
+  function renderCauseOverview(){
+    var infectious = CASES.filter(function(c){ return c.cat==="infectious"; });
+    var noninfectious = CASES.filter(function(c){ return c.cat==="noninfectious"; });
+    var html = '<div class="cause-overview">';
+    html += '<div class="intro">院内発熱の原因は、まず<mark>感染性</mark>を意識して除外し、否定的なら<mark>非感染性</mark>を検討するのが基本の優先順位です。代表的な原因を挙げます。</div>';
+    html += '<div class="section-head infectious"><span class="dot"></span><h2>感染性の原因</h2><span class="count">代表'+infectious.length+'例</span></div>';
+    html += '<div class="cause-list infectious">'+infectious.map(causeItemHtml).join("")+'</div>';
+    html += '<div class="section-head noninfectious"><span class="dot"></span><h2>非感染性の原因</h2><span class="count">代表'+noninfectious.length+'例</span></div>';
+    html += '<div class="cause-list noninfectious">'+noninfectious.map(causeItemHtml).join("")+'</div>';
+    html += '</div>';
+    return html;
+  }
+
+  function causeItemHtml(c){
+    return '<button class="cause-item" data-action="open-case" data-id="'+c.id+'">'+
+      '<span class="ci-tag">'+escapeHtml(c.tag)+'</span>'+
+      '<span class="ci-title">'+escapeHtml(c.title)+'</span>'+
+    '</button>';
+  }
+
   function renderKeitai(){
     var html = "";
     html += '<div class="keitai-hero"><div class="eyebrow">院内発熱の型</div><h1>どの症例でも、まずこの順番で考える</h1><p>原因が何であれ、院内発熱の初動はこの5ステップが基本の型になります。症例ごとの知識より先に、この流れを体に染み込ませましょう。</p></div>';
+    html += renderCauseOverview();
     html += '<div class="escalation-note"><div class="en-label">⚡ いつでも・早ければ早いほど</div><div class="en-body">上級医への相談はこの流れの「最後」ではありません。判断に迷う・重症感がある時点で、<mark>抗菌薬を選ぶより先に</mark>共有してください。一人で抱え込まないこと自体が初動の一部です。</div></div>';
     html += '<div class="flow">';
     FLOW.forEach(function(f,i){
