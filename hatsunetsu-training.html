@@ -372,17 +372,19 @@
   .cause-list{ display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
   .cause-list:last-child{ margin-bottom:0; }
   .cause-item{
-    display:flex; align-items:center; gap:10px;
+    display:flex; align-items:flex-start; gap:10px;
     background:var(--surface); border:1px solid var(--line); border-radius:12px;
     padding:11px 14px; box-shadow:var(--shadow);
   }
   .cause-item .ci-tag{
     flex:none; font-size:11px; font-weight:700; padding:4px 9px; border-radius:999px;
-    white-space:nowrap;
+    white-space:nowrap; margin-top:1px;
   }
   .cause-list.infectious .ci-tag{ background:var(--bad-tint); color:var(--bad); }
   .cause-list.noninfectious .ci-tag{ background:var(--primary-tint); color:var(--primary-strong); }
+  .cause-item .ci-text{ display:flex; flex-direction:column; gap:2px; min-width:0; }
   .cause-item .ci-title{ font-size:13.5px; font-weight:600; color:var(--ink); }
+  .cause-item .ci-clue{ font-size:12px; color:var(--ink-soft); }
 
   .escalation-note{
     margin-top:18px; padding:16px 18px; border-radius:14px;
@@ -1043,16 +1045,16 @@
   // (which would spoil that case's answer).
   var GENERAL_CAUSES = {
     infectious:[
-      {tag:"呼吸器", label:"肺炎（誤嚥性を含む）"},
-      {tag:"尿路", label:"尿路感染症"},
-      {tag:"手術部位／デバイス", label:"手術部位感染・デバイス感染"},
-      {tag:"血管内デバイス", label:"カテーテル関連血流感染"},
-      {tag:"腸管", label:"Clostridioides difficile感染症"}
+      {tag:"呼吸器", label:"肺炎（誤嚥性を含む）", clue:"嚥下障害・湿性咳嗽・SpO2低下"},
+      {tag:"尿路", label:"尿路感染症", clue:"尿道カテーテル留置・悪寒戦慄・混濁尿"},
+      {tag:"手術部位／デバイス", label:"手術部位感染・デバイス感染", clue:"術後創部の発赤・排膿、ドレーン留置"},
+      {tag:"血管内デバイス", label:"カテーテル関連血流感染", clue:"中心静脈カテーテル刺入部の発赤・抜去で解熱"},
+      {tag:"腸管", label:"Clostridioides difficile感染症", clue:"抗菌薬投与歴＋水様便"}
     ],
     noninfectious:[
-      {tag:"血栓症", label:"深部静脈血栓症"},
-      {tag:"関節", label:"結晶性関節炎（偽痛風など）"},
-      {tag:"薬剤性", label:"薬剤熱・薬疹"}
+      {tag:"血栓症", label:"深部静脈血栓症", clue:"下肢の腫脹・疼痛・長期臥床"},
+      {tag:"関節", label:"結晶性関節炎（偽痛風など）", clue:"単関節の腫脹・熱感、既往発作"},
+      {tag:"薬剤性", label:"薬剤熱・薬疹", clue:"新規薬剤導入、比較的徐脈、皮疹"}
     ]
   };
 
@@ -1072,7 +1074,10 @@
   function causeItemHtml(c){
     return '<div class="cause-item">'+
       '<span class="ci-tag">'+escapeHtml(c.tag)+'</span>'+
-      '<span class="ci-title">'+escapeHtml(c.label)+'</span>'+
+      '<div class="ci-text">'+
+        '<span class="ci-title">'+escapeHtml(c.label)+'</span>'+
+        '<span class="ci-clue">'+escapeHtml(c.clue)+'</span>'+
+      '</div>'+
     '</div>';
   }
 
