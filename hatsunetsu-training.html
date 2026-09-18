@@ -854,12 +854,26 @@
     });
   }
 
+  // これらのアプリはQRコードから開かれるため、ブラウザの「戻る」はアプリを離脱せず
+  // 直前の画面に戻る必要がある。go() で履歴を積み、popstate で状態を復元する。
+  function historySnapshot(){
+    return {view:state.view, caseId:state.caseId, reviewOnly:!!state.reviewOnly};
+  }
   function go(view, caseId){
     state.view = view;
     state.caseId = caseId || null;
+    try{ history.pushState(historySnapshot(), ""); }catch(e){}
     render();
     window.scrollTo(0,0);
   }
+  window.addEventListener("popstate", function(ev){
+    var s = ev.state;
+    state.view = (s && s.view) ? s.view : "home";
+    state.caseId = (s && s.caseId) ? s.caseId : null;
+    state.reviewOnly = !!(s && s.reviewOnly);
+    render();
+    window.scrollTo(0,0);
+  });
 
   /* ---------------- RENDER: HOME ---------------- */
   function renderHome(){
@@ -1234,6 +1248,7 @@
     if(document.visibilityState === "hidden") flushCurrentDraft();
   });
 
+  try{ history.replaceState(historySnapshot(), ""); }catch(e){}
   render();
 })();
 </script>
