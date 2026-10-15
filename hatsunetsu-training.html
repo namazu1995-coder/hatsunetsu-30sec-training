@@ -479,139 +479,7 @@
       ]
     },
     {
-      id:"uti", num:2, cat:"infectious", tag:"尿路",
-      title:"尿路感染症", hint:"82歳女性・尿道カテーテル留置中・入院10日目の発熱",
-      vignette:"82歳女性。大腿骨骨折術後で尿道カテーテル留置中。入院10日目、38.7℃の発熱と悪寒戦慄が出現。",
-      vitals:"BT 38.7℃　BP 100/60　HR 110　RR 20　SpO2 97%　悪寒戦慄あり",
-      answer:{
-        check:[
-          "悪寒戦慄・頻脈など<mark>菌血症を疑う所見</mark>の有無",
-          "<mark>尿道カテーテル内の尿の性状</mark>（混濁・血尿・悪臭など）を実際に確認する",
-          "カテーテル留置期間、CVA（肋骨脊柱角）叩打痛"
-        ],
-        danger:[
-          "腎盂腎炎から<mark>尿路性敗血症（urosepsis）</mark>への進展",
-          "悪寒戦慄がある時点で菌血症を疑ってバイタルを頻回に確認する",
-          "<mark>菌血症・敗血症を疑う所見があれば上級医に速やかに報告</mark>し、単独対応を続けない"
-        ],
-        tests:[
-          "<mark>尿培養（可能ならカテーテル交換後に採取）</mark>",
-          "<mark>尿道カテーテル留置中の複雑性尿路感染や悪寒戦慄など菌血症を疑う所見を伴う場合は、血液培養を積極的に提出</mark>する（非複雑性の腎盂腎炎では必須とは限らない）",
-          "腎機能・乳酸値で重症度を評価"
-        ]
-      },
-      pearl:[
-        "カテーテル留置患者の尿検査は無症候性細菌尿が多く、混濁や培養陽性だけでは治療対象にならない",
-        "膿尿の有無は無症候性細菌尿とカテーテル関連尿路感染症の鑑別には有用でないとされており（IDSAガイドライン）、他に発熱源がなく悪寒戦慄など全身症状を伴うかどうかで判断する",
-        "可能であれば新しいカテーテルに交換してから採尿すると、バイオフィルムによる偽陽性を避けやすい",
-        "院内・カテーテル関連尿路感染症は大腸菌に加えKlebsiella属や緑膿菌、腸球菌など多様な菌や耐性菌（ESBL産生菌など）が市中発症例より関与しやすく、経験的治療は広域なグラム陰性菌カバー（第3世代セフェムやピペラシリン/タゾバクタムなど、施設のアンチバイオグラムに応じて選択）で開始し、培養結果が出たら狭域化するのが基本となる"
-      ],
-      refs:[
-        {author:"Hooton TM, et al.（IDSA）", title:"Diagnosis, Prevention, and Treatment of Catheter-Associated Urinary Tract Infection in Adults: 2009 International Clinical Practice Guidelines", source:"Clinical Infectious Diseases", year:"2010", url:"https://doi.org/10.1086/650482"},
-        {author:"Miller JM, et al.（IDSA/ASM）", title:"A Guide to Utilization of the Microbiology Laboratory for Diagnosis of Infectious Diseases: 2018 Update", source:"Clinical Infectious Diseases", year:"2018", url:"https://doi.org/10.1093/cid/ciy381"}
-      ]
-    },
-    {
-      id:"ssi", num:3, cat:"infectious", tag:"手術部位／デバイス",
-      title:"SSI（手術部位感染）・デバイス感染", hint:"68歳男性・大腸癌術後7日目・ドレーン留置中の発熱",
-      vignette:"68歳男性。大腸癌術後7日目。38.4℃の発熱があり、創部周囲にやや発赤がある。ドレーンも留置されている。",
-      vitals:"BT 38.4℃　BP 116/72　HR 96　創部：軽度発赤　ドレーン留置中",
-      answer:{
-        check:[
-          "<mark>創部・ドレーン刺入部を実際に見て触り、留置されている他のデバイスがあればその刺入部もすべて確認する</mark>",
-          "術後経過日数と手術内容",
-          "腹部所見（圧痛・反跳痛など）"
-        ],
-        danger:[
-          "創部だけ見て安心し、<mark>深部膿瘍や縫合不全（腹腔内感染）を見逃す</mark>こと",
-          "腹膜炎徴候を見落とすと急速に悪化しうる",
-          "<mark>腹膜炎徴候や縫合不全を疑えば直ちに執刀医・上級医に報告</mark>する"
-        ],
-        tests:[
-          "創部培養",
-          "<mark>造影CTで深部膿瘍を検索</mark>",
-          "必要に応じ外科的ドレナージ、血液培養も併せて提出",
-          "<mark>敗血症性ショックを疑う場合は、CT検査の手配を待たず血液培養採取後ただちに抗菌薬投与を優先</mark>する。画像評価は治療と並行して進めればよい"
-        ]
-      },
-      pearl:[
-        "術後発熱の鑑別は肺（無気肺・肺炎）、尿路、創部・術野、DVT、薬剤など多岐にわたり、術後何日目かで頻度が変わる",
-        "創部・ドレーンが留置されている本症例ではまずそこを疑うのが自然だが、創部所見が軽度でも腹腔内の縫合不全や膿瘍を否定したことにはならない",
-        "大腸手術後の縫合不全は術後5〜7日目前後に顕在化することが多く、頻脈や腹部所見の変化を伴う発熱では画像評価の閾値を下げる"
-      ],
-      refs:[
-        {author:"Kingham TP, Pachter HL.", title:"Colonic anastomotic leak: risk factors, diagnosis, and treatment", source:"Journal of the American College of Surgeons", year:"2009", url:"https://doi.org/10.1016/j.jamcollsurg.2008.10.015"},
-        {author:"Berríos-Torres SI, et al.（CDC）", title:"Centers for Disease Control and Prevention Guideline for the Prevention of Surgical Site Infection, 2017", source:"JAMA Surgery", year:"2017", url:"https://doi.org/10.1001/jamasurg.2017.0904"}
-      ]
-    },
-    {
-      id:"cdi", num:4, cat:"infectious", tag:"腸管",
-      title:"CDI（Clostridioides difficile感染症）", hint:"80歳女性・抗菌薬治療5日目・水様便を伴う発熱",
-      vignette:"80歳女性。肺炎で抗菌薬治療中。治療5日目、38.0℃の発熱とともに1日5回の水様便が出現した。",
-      vitals:"BT 38.0℃　BP 108/68　HR 96　水様便 5回/日　抗菌薬投与5日目",
-      answer:{
-        check:[
-          "<mark>抗菌薬使用歴</mark>と使用期間",
-          "便の性状・回数（<mark>下剤使用の有無</mark>も確認）、脱水徴候",
-          "腹部所見（腹部膨満・圧痛）"
-        ],
-        danger:[
-          "<mark>検査結果が出るまで隔離を待ってしまい、対応が遅れて院内伝播</mark>を招くこと",
-          "重症型（中毒性巨大結腸症など）の見逃し"
-        ],
-        tests:[
-          "<mark>まず個室隔離・接触予防策を先に開始</mark>してから検査へ",
-          "便中CDトキシン／GDH／PCR（施設の検査手順に従う）。下剤使用中の下痢は検査対象にしないのが原則",
-          "血算（白血球数）・腎機能で重症度を評価する",
-          "止痢薬（ロペラミドなど腸管運動抑制薬）は避け、<mark>原因となりうる抗菌薬が継続・この広さで必要か</mark>を上級医と見直す",
-          "<mark>腹部膨満・イレウス様所見・血圧低下など重症化のサインがあれば直ちに上級医・外科にコール</mark>する"
-        ]
-      },
-      pearl:[
-        "CDIは接触感染性が高く、確定診断を待たず疑った時点で個室隔離・接触予防策を開始することが院内伝播防止の要になる",
-        "接触時の手袋・ガウン着用は状況によらず必須で、手指衛生は通常時のアルコール消毒に加え、アウトブレイクや発生率上昇時には流水と石鹸による物理的な洗浄がより推奨される"
-      ],
-      refs:[
-        {author:"McDonald LC, et al.（IDSA/SHEA）", title:"Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017 Update", source:"Clinical Infectious Diseases", year:"2018", url:"https://doi.org/10.1093/cid/cix1085"}
-      ]
-    },
-    {
-      id:"crbsi_fn", num:5, cat:"infectious", tag:"血管内デバイス／血液・腫瘍",
-      title:"CRBSI合併の発熱性好中球減少症", hint:"58歳女性・化学療法後10日目・中心静脈カテーテル留置中の悪寒を伴う発熱",
-      vignette:"58歳女性。血液腫瘍性疾患に対する化学療法後10日目。中心静脈カテーテル（CVC）を留置しTPN管理中。悪寒戦慄を伴う39.2℃の発熱が出現した。咳・排尿時痛・下痢など局所症状ははっきりしない。",
-      vitals:"BT 39.2℃　BP 100/62　HR 112　RR 20　SpO2 96%",
-      answer:{
-        check:[
-          "<mark>好中球数（ANC）</mark>とバイタルサイン",
-          "カテーテル刺入部を実際に見て触る（発赤・圧痛・排膿）",
-          "口腔内・肛門周囲・皮膚など、カテーテル以外の感染巣もあわせて検索"
-        ],
-        danger:[
-          "好中球減少があると<mark>刺入部の発赤・排膿などの局所炎症所見が乏しくなる</mark>ため、所見がないからとCRBSIを否定できない",
-          "局所症状が乏しくても<mark>急速に敗血症性ショックへ進展</mark>しうる",
-          "好中球減少時の<mark>直腸診・浣腸・坐薬は原則禁忌</mark>（粘膜損傷から菌血症を誘発）",
-          "TPN管理中は<mark>カンジダ血症</mark>など真菌感染も念頭に置く",
-          "<mark>発熱性好中球減少症を疑った時点で緊急度の高い病態として上級医・当直医に速やかに報告</mark>し、一人で抱え込まない"
-        ],
-        tests:[
-          "<mark>末梢静脈とカテーテルの両方から同時に血液培養</mark>を採取",
-          "身体所見を丁寧に確認したうえで、<mark>速やかに広域抗菌薬（PIPC/TAZ、CFPM、MEPMなど）を開始</mark>（発熱を認識してから1時間以内の投与が目標）",
-          "<mark>カテーテル注入時の悪寒戦慄や刺入部の炎症所見など重症カテーテル感染を疑う所見があれば、バンコマイシンなど抗MRSA薬を初期治療に追加</mark>する（血行動態不安定・皮膚軟部組織感染・MRSA保菌時なども同様）",
-          "感染が強く疑われ全身状態が不安定なら<mark>カテーテル抜去</mark>を検討"
-        ]
-      },
-      pearl:[
-        "発熱性好中球減少症は、局所所見の乏しさに惑わされず原因検索と並行して速やかに広域抗菌薬を開始することが最優先される数少ない病態の一つ",
-        "起因菌が黄色ブドウ球菌・緑膿菌・カンジダなどであれば重症化しやすくカテーテル抜去が強く推奨される一方、病原性の低い菌（コアグラーゼ陰性ブドウ球菌など）では血行動態が安定していればカテーテル温存を検討できる",
-        "カテーテルをすぐに抜去できない場合、末梢血とカテーテル血の培養陽性化までの時間差（DTP: differential time to positivity、カテーテル血がおよそ2時間以上早く陽性化）がカテーテル由来感染らしさの参考所見になる"
-      ],
-      refs:[
-        {author:"Mermel LA, et al.（IDSA）", title:"Clinical Practice Guidelines for the Diagnosis and Management of Intravascular Catheter-Related Infection: 2009 Update", source:"Clinical Infectious Diseases", year:"2009", url:"https://doi.org/10.1086/599376"},
-        {author:"Freifeld AG, et al.（IDSA）", title:"Clinical Practice Guideline for the Use of Antimicrobial Agents in Neutropenic Patients with Cancer: 2010 Update", source:"Clinical Infectious Diseases", year:"2011", url:"https://doi.org/10.1093/cid/cir073"}
-      ]
-    },
-    {
-      id:"dvt", num:6, cat:"noninfectious", tag:"血栓症",
+      id:"dvt", num:2, cat:"noninfectious", tag:"血栓症",
       title:"DVT（深部静脈血栓症）", hint:"75歳男性・臥床中・片側下腿腫脹を伴う微熱",
       vignette:"75歳男性。大腿骨頸部骨折術後で臥床が続いている。術後4日目、37.8℃の微熱が持続。片側の下腿にやや腫脹があるが、本人からの訴えは乏しい。",
       vitals:"BT 37.8℃　BP 126/80　HR 92　SpO2 96%　左下腿：軽度腫脹",
@@ -647,7 +515,71 @@
       ]
     },
     {
-      id:"pseudogout", num:7, cat:"noninfectious", tag:"関節",
+      id:"uti", num:3, cat:"infectious", tag:"尿路",
+      title:"尿路感染症", hint:"82歳女性・尿道カテーテル留置中・入院10日目の発熱",
+      vignette:"82歳女性。大腿骨骨折術後で尿道カテーテル留置中。入院10日目、38.7℃の発熱と悪寒戦慄が出現。",
+      vitals:"BT 38.7℃　BP 100/60　HR 110　RR 20　SpO2 97%　悪寒戦慄あり",
+      answer:{
+        check:[
+          "悪寒戦慄・頻脈など<mark>菌血症を疑う所見</mark>の有無",
+          "<mark>尿道カテーテル内の尿の性状</mark>（混濁・血尿・悪臭など）を実際に確認する",
+          "カテーテル留置期間、CVA（肋骨脊柱角）叩打痛"
+        ],
+        danger:[
+          "腎盂腎炎から<mark>尿路性敗血症（urosepsis）</mark>への進展",
+          "悪寒戦慄がある時点で菌血症を疑ってバイタルを頻回に確認する",
+          "<mark>菌血症・敗血症を疑う所見があれば上級医に速やかに報告</mark>し、単独対応を続けない"
+        ],
+        tests:[
+          "<mark>尿培養（可能ならカテーテル交換後に採取）</mark>",
+          "<mark>尿道カテーテル留置中の複雑性尿路感染や悪寒戦慄など菌血症を疑う所見を伴う場合は、血液培養を積極的に提出</mark>する（非複雑性の腎盂腎炎では必須とは限らない）",
+          "腎機能・乳酸値で重症度を評価"
+        ]
+      },
+      pearl:[
+        "カテーテル留置患者の尿検査は無症候性細菌尿が多く、混濁や培養陽性だけでは治療対象にならない",
+        "膿尿の有無は無症候性細菌尿とカテーテル関連尿路感染症の鑑別には有用でないとされており（IDSAガイドライン）、他に発熱源がなく悪寒戦慄など全身症状を伴うかどうかで判断する",
+        "可能であれば新しいカテーテルに交換してから採尿すると、バイオフィルムによる偽陽性を避けやすい",
+        "院内・カテーテル関連尿路感染症は大腸菌に加えKlebsiella属や緑膿菌、腸球菌など多様な菌や耐性菌（ESBL産生菌など）が市中発症例より関与しやすく、経験的治療は広域なグラム陰性菌カバー（第3世代セフェムやピペラシリン/タゾバクタムなど、施設のアンチバイオグラムに応じて選択）で開始し、培養結果が出たら狭域化するのが基本となる"
+      ],
+      refs:[
+        {author:"Hooton TM, et al.（IDSA）", title:"Diagnosis, Prevention, and Treatment of Catheter-Associated Urinary Tract Infection in Adults: 2009 International Clinical Practice Guidelines", source:"Clinical Infectious Diseases", year:"2010", url:"https://doi.org/10.1086/650482"},
+        {author:"Miller JM, et al.（IDSA/ASM）", title:"A Guide to Utilization of the Microbiology Laboratory for Diagnosis of Infectious Diseases: 2018 Update", source:"Clinical Infectious Diseases", year:"2018", url:"https://doi.org/10.1093/cid/ciy381"}
+      ]
+    },
+    {
+      id:"cdi", num:4, cat:"infectious", tag:"腸管",
+      title:"CDI（Clostridioides difficile感染症）", hint:"80歳女性・抗菌薬治療5日目・水様便を伴う発熱",
+      vignette:"80歳女性。肺炎で抗菌薬治療中。治療5日目、38.0℃の発熱とともに1日5回の水様便が出現した。",
+      vitals:"BT 38.0℃　BP 108/68　HR 96　水様便 5回/日　抗菌薬投与5日目",
+      answer:{
+        check:[
+          "<mark>抗菌薬使用歴</mark>と使用期間",
+          "便の性状・回数（<mark>下剤使用の有無</mark>も確認）、脱水徴候",
+          "腹部所見（腹部膨満・圧痛）"
+        ],
+        danger:[
+          "<mark>検査結果が出るまで隔離を待ってしまい、対応が遅れて院内伝播</mark>を招くこと",
+          "重症型（中毒性巨大結腸症など）の見逃し"
+        ],
+        tests:[
+          "<mark>まず個室隔離・接触予防策を先に開始</mark>してから検査へ",
+          "便中CDトキシン／GDH／PCR（施設の検査手順に従う）。下剤使用中の下痢は検査対象にしないのが原則",
+          "血算（白血球数）・腎機能で重症度を評価する",
+          "止痢薬（ロペラミドなど腸管運動抑制薬）は避け、<mark>原因となりうる抗菌薬が継続・この広さで必要か</mark>を上級医と見直す",
+          "<mark>腹部膨満・イレウス様所見・血圧低下など重症化のサインがあれば直ちに上級医・外科にコール</mark>する"
+        ]
+      },
+      pearl:[
+        "CDIは接触感染性が高く、確定診断を待たず疑った時点で個室隔離・接触予防策を開始することが院内伝播防止の要になる",
+        "接触時の手袋・ガウン着用は状況によらず必須で、手指衛生は通常時のアルコール消毒に加え、アウトブレイクや発生率上昇時には流水と石鹸による物理的な洗浄がより推奨される"
+      ],
+      refs:[
+        {author:"McDonald LC, et al.（IDSA/SHEA）", title:"Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017 Update", source:"Clinical Infectious Diseases", year:"2018", url:"https://doi.org/10.1093/cid/cix1085"}
+      ]
+    },
+    {
+      id:"pseudogout", num:5, cat:"noninfectious", tag:"関節",
       title:"偽痛風・結晶性関節炎（化膿性関節炎の除外）", hint:"85歳女性・術後3日目・膝関節腫脹を伴う発熱",
       vignette:"85歳女性。認知症があり、大腿骨骨折術後3日目に38.2℃の発熱。膝関節に腫脹と熱感があるが、本人の訴えははっきりしない。",
       vitals:"BT 38.2℃　BP 130/78　HR 90　右膝：腫脹・熱感あり",
@@ -679,7 +611,40 @@
       ]
     },
     {
-      id:"drugfever", num:8, cat:"noninfectious", tag:"薬剤性",
+      id:"ssi", num:6, cat:"infectious", tag:"手術部位／デバイス",
+      title:"SSI（手術部位感染）・デバイス感染", hint:"68歳男性・大腸癌術後7日目・ドレーン留置中の発熱",
+      vignette:"68歳男性。大腸癌術後7日目。38.4℃の発熱があり、創部周囲にやや発赤がある。ドレーンも留置されている。",
+      vitals:"BT 38.4℃　BP 116/72　HR 96　創部：軽度発赤　ドレーン留置中",
+      answer:{
+        check:[
+          "<mark>創部・ドレーン刺入部を実際に見て触り、留置されている他のデバイスがあればその刺入部もすべて確認する</mark>",
+          "術後経過日数と手術内容",
+          "腹部所見（圧痛・反跳痛など）"
+        ],
+        danger:[
+          "創部だけ見て安心し、<mark>深部膿瘍や縫合不全（腹腔内感染）を見逃す</mark>こと",
+          "腹膜炎徴候を見落とすと急速に悪化しうる",
+          "<mark>腹膜炎徴候や縫合不全を疑えば直ちに執刀医・上級医に報告</mark>する"
+        ],
+        tests:[
+          "創部培養",
+          "<mark>造影CTで深部膿瘍を検索</mark>",
+          "必要に応じ外科的ドレナージ、血液培養も併せて提出",
+          "<mark>敗血症性ショックを疑う場合は、CT検査の手配を待たず血液培養採取後ただちに抗菌薬投与を優先</mark>する。画像評価は治療と並行して進めればよい"
+        ]
+      },
+      pearl:[
+        "術後発熱の鑑別は肺（無気肺・肺炎）、尿路、創部・術野、DVT、薬剤など多岐にわたり、術後何日目かで頻度が変わる",
+        "創部・ドレーンが留置されている本症例ではまずそこを疑うのが自然だが、創部所見が軽度でも腹腔内の縫合不全や膿瘍を否定したことにはならない",
+        "大腸手術後の縫合不全は術後5〜7日目前後に顕在化することが多く、頻脈や腹部所見の変化を伴う発熱では画像評価の閾値を下げる"
+      ],
+      refs:[
+        {author:"Kingham TP, Pachter HL.", title:"Colonic anastomotic leak: risk factors, diagnosis, and treatment", source:"Journal of the American College of Surgeons", year:"2009", url:"https://doi.org/10.1016/j.jamcollsurg.2008.10.015"},
+        {author:"Berríos-Torres SI, et al.（CDC）", title:"Centers for Disease Control and Prevention Guideline for the Prevention of Surgical Site Infection, 2017", source:"JAMA Surgery", year:"2017", url:"https://doi.org/10.1001/jamasurg.2017.0904"}
+      ]
+    },
+    {
+      id:"drugfever", num:7, cat:"noninfectious", tag:"薬剤性",
       title:"薬剤熱・薬疹", hint:"60歳男性・抗菌薬投与1週間後の再発熱と皮疹",
       vignette:"60歳男性。肺炎治療のためβラクタム系抗菌薬を投与中。一度解熱していたが、投与開始1週間後に再び38.5℃の発熱が出現し、体幹を中心に軽度の皮疹も出てきた。自覚症状に乏しく、新たな感染巣も見当たらない。",
       vitals:"BT 38.5℃　BP 122/76　HR 88　SpO2 98%　体幹中心に軽度の紅斑・皮疹",
@@ -712,6 +677,41 @@
         {author:"Patel RA, Gallagher JC.", title:"Drug fever", source:"Pharmacotherapy", year:"2010", url:"https://doi.org/10.1592/phco.30.1.57"},
         {author:"Shiohara T, Inaoka M, Kano Y.", title:"Drug-induced hypersensitivity syndrome (DIHS): a reaction induced by a complex interplay among herpesviruses and antiviral and antidrug immune responses", source:"Allergology International", year:"2006", url:"https://doi.org/10.2332/allergolint.55.1"},
         {author:"Kardaun SH, et al.", title:"Variability in the clinical pattern of cutaneous side-effects of drugs with systemic symptoms: does a DRESS syndrome really exist?", source:"British Journal of Dermatology", year:"2007", url:"https://doi.org/10.1111/j.1365-2133.2006.07704.x"}
+      ]
+    },
+    {
+      id:"crbsi_fn", num:8, cat:"infectious", tag:"血管内デバイス／血液・腫瘍",
+      title:"CRBSI合併の発熱性好中球減少症", hint:"58歳女性・化学療法後10日目・中心静脈カテーテル留置中の悪寒を伴う発熱",
+      vignette:"58歳女性。血液腫瘍性疾患に対する化学療法後10日目。中心静脈カテーテル（CVC）を留置しTPN管理中。悪寒戦慄を伴う39.2℃の発熱が出現した。咳・排尿時痛・下痢など局所症状ははっきりしない。",
+      vitals:"BT 39.2℃　BP 100/62　HR 112　RR 20　SpO2 96%",
+      answer:{
+        check:[
+          "<mark>好中球数（ANC）</mark>とバイタルサイン",
+          "カテーテル刺入部を実際に見て触る（発赤・圧痛・排膿）",
+          "口腔内・肛門周囲・皮膚など、カテーテル以外の感染巣もあわせて検索"
+        ],
+        danger:[
+          "好中球減少があると<mark>刺入部の発赤・排膿などの局所炎症所見が乏しくなる</mark>ため、所見がないからとCRBSIを否定できない",
+          "局所症状が乏しくても<mark>急速に敗血症性ショックへ進展</mark>しうる",
+          "好中球減少時の<mark>直腸診・浣腸・坐薬は原則禁忌</mark>（粘膜損傷から菌血症を誘発）",
+          "TPN管理中は<mark>カンジダ血症</mark>など真菌感染も念頭に置く",
+          "<mark>発熱性好中球減少症を疑った時点で緊急度の高い病態として上級医・当直医に速やかに報告</mark>し、一人で抱え込まない"
+        ],
+        tests:[
+          "<mark>末梢静脈とカテーテルの両方から同時に血液培養</mark>を採取",
+          "身体所見を丁寧に確認したうえで、<mark>速やかに広域抗菌薬（PIPC/TAZ、CFPM、MEPMなど）を開始</mark>（発熱を認識してから1時間以内の投与が目標）",
+          "<mark>カテーテル注入時の悪寒戦慄や刺入部の炎症所見など重症カテーテル感染を疑う所見があれば、バンコマイシンなど抗MRSA薬を初期治療に追加</mark>する（血行動態不安定・皮膚軟部組織感染・MRSA保菌時なども同様）",
+          "感染が強く疑われ全身状態が不安定なら<mark>カテーテル抜去</mark>を検討"
+        ]
+      },
+      pearl:[
+        "発熱性好中球減少症は、局所所見の乏しさに惑わされず原因検索と並行して速やかに広域抗菌薬を開始することが最優先される数少ない病態の一つ",
+        "起因菌が黄色ブドウ球菌・緑膿菌・カンジダなどであれば重症化しやすくカテーテル抜去が強く推奨される一方、病原性の低い菌（コアグラーゼ陰性ブドウ球菌など）では血行動態が安定していればカテーテル温存を検討できる",
+        "カテーテルをすぐに抜去できない場合、末梢血とカテーテル血の培養陽性化までの時間差（DTP: differential time to positivity、カテーテル血がおよそ2時間以上早く陽性化）がカテーテル由来感染らしさの参考所見になる"
+      ],
+      refs:[
+        {author:"Mermel LA, et al.（IDSA）", title:"Clinical Practice Guidelines for the Diagnosis and Management of Intravascular Catheter-Related Infection: 2009 Update", source:"Clinical Infectious Diseases", year:"2009", url:"https://doi.org/10.1086/599376"},
+        {author:"Freifeld AG, et al.（IDSA）", title:"Clinical Practice Guideline for the Use of Antimicrobial Agents in Neutropenic Patients with Cancer: 2010 Update", source:"Clinical Infectious Diseases", year:"2011", url:"https://doi.org/10.1093/cid/cir073"}
       ]
     }
   ];
@@ -923,12 +923,8 @@
         html += '<div class="case-grid">'+rev.map(caseCardHtml).join("")+'</div>';
       }
     } else {
-      var infectious = CASES.filter(function(c){return c.cat==="infectious";});
-      var noninfectious = CASES.filter(function(c){return c.cat==="noninfectious";});
-      html += '<div class="section-head infectious"><span class="dot"></span><h2>感染性の原因</h2><span class="count">'+infectious.length+'症例</span></div>';
-      html += '<div class="case-grid">'+infectious.map(caseCardHtml).join("")+'</div>';
-      html += '<div class="section-head noninfectious"><span class="dot"></span><h2>非感染性の原因</h2><span class="count">'+noninfectious.length+'症例</span></div>';
-      html += '<div class="case-grid">'+noninfectious.map(caseCardHtml).join("")+'</div>';
+      html += '<div class="section-head"><h2>症例一覧</h2><span class="count">'+CASES.length+'症例</span></div>';
+      html += '<div class="case-grid">'+CASES.map(caseCardHtml).join("")+'</div>';
     }
 
     return html;
